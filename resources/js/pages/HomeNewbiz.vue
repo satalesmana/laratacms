@@ -8,10 +8,10 @@
 
                 <nav class="main-nav float-right d-none d-lg-block">
                     <ul>
-                        <li class="active"><a href="#" v-scroll-to="'#intro'">Home</a></li>
-                        <li><a href="#" v-scroll-to="'#about'">Fitur</a></li>
-                        <li><a href="#" v-scroll-to="'#testimonials'">Testinomi</a></li>            
-                        <li><a href="#" v-scroll-to="'#contact'">Contact Us</a></li>
+                        <li  :class="{ active : active_el == 1 }"><a href="#" v-scroll-to="'#intro'" @click="activate(1)" >Home</a></li>
+                        <li  :class="{ active : active_el == 2 }"><a href="#" v-scroll-to="'#about'" @click="activate(2)" >Fitur</a></li>
+                        <li  :class="{ active : active_el == 3 }"><a href="#" v-scroll-to="'#testimonials'" @click="activate(3)" >Testinomi</a></li>            
+                        <li  :class="{ active : active_el == 4 }"><a href="#" v-scroll-to="'#contact'" @click="activate(4)" >Contact Us</a></li>
                     </ul>
                 </nav>
             </div>
@@ -228,6 +228,7 @@
 export default {
     data() {
         return {
+            active_el:1,
             testimoni: [
                 '<div class="testimonial-item"><img src="img/testimonial-1.jpg" class="testimonial-img" alt=""><h3>Saul Goodman</h3><h4>Ceo &amp; Founder</h4><p>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</p></div>',
                 '<div class="testimonial-item"><img src="img/testimonial-1.jpg" class="testimonial-img" alt=""><h3>Saul Goodman</h3><h4>Ceo &amp; Founder</h4><p>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</p></div>',
@@ -236,6 +237,11 @@ export default {
             ],
         };
     },
+    methods:{
+        activate:function(el){
+            this.active_el = el;
+        }
+    }
 };
 </script>
 
