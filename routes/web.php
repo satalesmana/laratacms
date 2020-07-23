@@ -14,3 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/', 'WebclientController')->only(['index']);
+Route::post('/send_messages','WebclientController@sendMail');
+Route::resource('/testimoni','TestimonialsController')->only(['index']);
+

@@ -1166,7 +1166,7 @@ h6 {
   font-size: 14px;
 }
 
-#contact .form button[type="submit"] {
+#contact .form button {
   background: #007bff;
   border: 0;
   border-radius: 20px;
@@ -1175,7 +1175,7 @@ h6 {
   transition: 0.3s;
 }
 
-#contact .form button[type="submit"]:hover {
+#contact .form button:hover {
   background: #0067d5;
   cursor: pointer;
 }
