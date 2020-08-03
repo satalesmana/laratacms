@@ -12,9 +12,17 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+    private $http;
+
+    function __construct() {
+        $this->http = (env('APP_ENV')=='local')?'http':'https';
+    }
+
     public function register()
     {
-        URL::forceScheme('http');
+        
+        URL::forceScheme($this->http);
     }
 
     /**
@@ -24,6 +32,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        URL::forceScheme('http');
+        URL::forceScheme($this->http);
     }
 }
