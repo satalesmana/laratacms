@@ -84176,7 +84176,7 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-lg-6 wow fadeInUp pt-5 pt-lg-0" }, [
-            _c("h4", [_vm._v("Legas Module.")]),
+            _c("h4", [_vm._v("Legal Module.")]),
             _vm._v(" "),
             _c("p", [
               _vm._v(

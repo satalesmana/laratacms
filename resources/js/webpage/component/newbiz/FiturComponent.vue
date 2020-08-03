@@ -12,7 +12,7 @@
                     <img src="images/img-legal.png" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
-                    <h4>Legas Module.</h4>
+                    <h4>Legal Module.</h4>
                     <p>
                         Easy to manage your legal document. you can tracking and find legal document also create document legal with existing templates
                     </p>
