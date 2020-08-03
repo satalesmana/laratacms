@@ -1327,6 +1327,13 @@ h6 {
   color: #f1f7ff;
 }
 
+
+
+
+.feature-list-content ul {
+  list-style-image:url('../img/icon-feature-list.svg');
+}
+
 /*--------------------------------------------------------------
 # Responsive Media Queries
 --------------------------------------------------------------*/

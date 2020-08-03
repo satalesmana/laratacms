@@ -4419,15 +4419,20 @@ function mergeFn (a, b) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/HomeNewbiz.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/Mainpage.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/HomeNewbiz.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/webpage/Mainpage.vue?vue&type=script&lang=js& ***!
   \****************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _component_newbiz_IntroComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./component/newbiz/IntroComponent */ "./resources/js/webpage/component/newbiz/IntroComponent.vue");
+/* harmony import */ var _component_newbiz_FiturComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./component/newbiz/FiturComponent */ "./resources/js/webpage/component/newbiz/FiturComponent.vue");
+/* harmony import */ var _component_newbiz_TestimoniComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./component/newbiz/TestimoniComponent */ "./resources/js/webpage/component/newbiz/TestimoniComponent.vue");
+/* harmony import */ var _component_newbiz_ContactComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./component/newbiz/ContactComponent */ "./resources/js/webpage/component/newbiz/ContactComponent.vue");
+/* harmony import */ var _EmptyComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EmptyComponent */ "./resources/js/webpage/EmptyComponent.vue");
 //
 //
 //
@@ -4515,72 +4520,84 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    NewbizHome: _component_newbiz_IntroComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
+    NewbizFitur: _component_newbiz_FiturComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
+    NewbizTestimoni: _component_newbiz_TestimoniComponent__WEBPACK_IMPORTED_MODULE_2__["default"],
+    NewbizContact: _component_newbiz_ContactComponent__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  data: function data() {
+    return {
+      active_el: 1,
+      content: {
+        area_one: _EmptyComponent__WEBPACK_IMPORTED_MODULE_4__["default"],
+        area_two: _EmptyComponent__WEBPACK_IMPORTED_MODULE_4__["default"],
+        area_thre: _EmptyComponent__WEBPACK_IMPORTED_MODULE_4__["default"],
+        area_four: _EmptyComponent__WEBPACK_IMPORTED_MODULE_4__["default"]
+      }
+    };
+  },
+  methods: {
+    activate: function activate(el) {
+      this.active_el = el;
+    },
+    loadContent: function loadContent() {
+      var _this = this;
+
+      axios.get(BASE_URL + '/component').then(function (r) {
+        for (var i = 0; i < r.data.length; i++) {
+          if (r.data[i].themes == 'newbiz' && r.data[i].location == '1') {
+            var apc = _this.newbizContent(r.data[i].component);
+
+            if (apc) _this.content.area_one = apc;
+          }
+
+          if (r.data[i].themes == 'newbiz' && r.data[i].location == '2') {
+            var _apc = _this.newbizContent(r.data[i].component);
+
+            if (_apc) _this.content.area_two = _apc;
+          }
+
+          if (r.data[i].themes == 'newbiz' && r.data[i].location == '3') {
+            var _apc2 = _this.newbizContent(r.data[i].component);
+
+            if (_apc2) _this.content.area_thre = _apc2;
+          }
+
+          if (r.data[i].themes == 'newbiz' && r.data[i].location == '4') {
+            var _apc3 = _this.newbizContent(r.data[i].component);
+
+            if (_apc3) _this.content.area_four = _apc3;
+          }
+        }
+      });
+    },
+    newbizContent: function newbizContent(component) {
+      if (component == 'intro') return _component_newbiz_IntroComponent__WEBPACK_IMPORTED_MODULE_0__["default"];else if (component == 'fitur') return _component_newbiz_FiturComponent__WEBPACK_IMPORTED_MODULE_1__["default"];else if (component == 'testimoni') return _component_newbiz_TestimoniComponent__WEBPACK_IMPORTED_MODULE_2__["default"];else if (component == 'contact') return _component_newbiz_ContactComponent__WEBPACK_IMPORTED_MODULE_3__["default"];else return false;
+    }
+  },
+  mounted: function mounted() {
+    this.loadContent();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/component/newbiz/ContactComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/webpage/component/newbiz/ContactComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -4664,14 +4681,10 @@ __webpack_require__.r(__webpack_exports__);
         email: '',
         subject: '',
         messages: ''
-      },
-      active_el: 1
+      }
     };
   },
   methods: {
-    activate: function activate(el) {
-      this.active_el = el;
-    },
     onSendMessages: function onSendMessages() {
       var _this = this;
 
@@ -4706,7 +4719,37 @@ __webpack_require__.r(__webpack_exports__);
         _this.loading = false;
       });
     }
-  },
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/component/newbiz/TestimoniComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/webpage/component/newbiz/TestimoniComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     this.$store.commit("getTestimonials");
   }
@@ -6536,19 +6579,19 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/HomeNewbiz.vue?vue&type=style&index=0&id=e9bf530a&scoped=true&lang=css&":
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/Mainpage.vue?vue&type=style&index=0&id=1884ff12&scoped=true&lang=css&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/HomeNewbiz.vue?vue&type=style&index=0&id=e9bf530a&scoped=true&lang=css& ***!
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/webpage/Mainpage.vue?vue&type=style&index=0&id=1884ff12&scoped=true&lang=css& ***!
   \***********************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
-exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../templates/newbiz/lib/bootstrap/css/bootstrap.min.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/bootstrap/css/bootstrap.min.css"), "");
-exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../templates/newbiz/lib/ionicons/css/ionicons.min.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/ionicons/css/ionicons.min.css"), "");
-exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../templates/newbiz/lib/font-awesome/css/font-awesome.min.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/font-awesome/css/font-awesome.min.css"), "");
-exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../templates/newbiz/css/style.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/css/style.css"), "");
+exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader??ref--7-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../templates/newbiz/lib/bootstrap/css/bootstrap.min.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/bootstrap/css/bootstrap.min.css"), "");
+exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader??ref--7-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../templates/newbiz/lib/ionicons/css/ionicons.min.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/ionicons/css/ionicons.min.css"), "");
+exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader??ref--7-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../templates/newbiz/lib/font-awesome/css/font-awesome.min.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/font-awesome/css/font-awesome.min.css"), "");
+exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader??ref--7-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../templates/newbiz/css/style.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/css/style.css"), "");
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700);", ""]);
 
 // module
@@ -6561,7 +6604,7 @@ exports.push([module.i, "\n", ""]);
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/css/style.css":
 /*!***********************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/css/style.css ***!
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/css/style.css ***!
   \***********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6572,7 +6615,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "/*\n  Theme Name: NewBiz\n  Theme URL: https://bootstrapmade.com/newbiz-bootstrap-business-template/\n  Author: BootstrapMade.com\n  License: https://bootstrapmade.com/license/\n*/\n\n/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\nbody {\n  background: #fff;\n  color: #444;\n  font-family: \"Open Sans\", sans-serif;\n}\na {\n  color: #007bff;\n  transition: 0.5s;\n}\na:hover,\na:active,\na:focus {\n  color: #0b6bd3;\n  outline: none;\n  text-decoration: none;\n}\np {\n  padding: 0;\n  margin: 0 0 30px 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  margin: 0 0 20px 0;\n  padding: 0;\n}\n\n/* Back to top button */\n.back-to-top {\n  position: fixed;\n  display: none;\n  background: #007bff;\n  color: #fff;\n  width: 44px;\n  height: 44px;\n  text-align: center;\n  line-height: 1;\n  font-size: 16px;\n  border-radius: 50%;\n  right: 15px;\n  bottom: 15px;\n  transition: background 0.5s;\n  z-index: 11;\n}\n.back-to-top i {\n  padding-top: 12px;\n  color: #fff;\n}\n\n/* Prelaoder */\n#preloader {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 9999;\n  overflow: hidden;\n  background: #fff;\n}\n#preloader:before {\n  content: \"\";\n  position: fixed;\n  top: calc(50% - 30px);\n  left: calc(50% - 30px);\n  border: 6px solid #f2f2f2;\n  border-top: 6px solid #007bff;\n  border-radius: 50%;\n  width: 60px;\n  height: 60px;\n  -webkit-animation: animate-preloader 1s linear infinite;\n  animation: animate-preloader 1s linear infinite;\n}\n@-webkit-keyframes animate-preloader {\n0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n@keyframes animate-preloader {\n0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n\n/*--------------------------------------------------------------\n# Header\n--------------------------------------------------------------*/\n#header {\n  height: 80px;\n  transition: all 0.5s;\n  z-index: 997;\n  transition: all 0.5s;\n  padding: 20px 0;\n  background: #fff;\n  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.3);\n}\n#header.header-scrolled,\n#header.header-pages {\n  height: 60px;\n  padding: 10px 0;\n}\n#header .logo h1 {\n  font-size: 36px;\n  margin: 0;\n  padding: 0;\n  line-height: 1;\n  font-weight: 400;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n}\n#header .logo h1 a,\n#header .logo h1 a:hover {\n  color: #00366f;\n  text-decoration: none;\n}\n#header .logo img {\n  padding: 0;\n  margin: 7px 0;\n  max-height: 40px;\n}\n.main-pages {\n  margin-top: 60px;\n}\n\n/*--------------------------------------------------------------\n# Intro Section\n--------------------------------------------------------------*/\n#intro {\n  width: 100%;\n  position: relative;\n  background: url(" + escape(__webpack_require__(/*! ../img/intro-bg.png */ "./resources/templates/newbiz/img/intro-bg.png")) + ") center bottom no-repeat;\n  background-size: cover;\n  padding: 200px 0 120px 0;\n}\n#intro .intro-img {\n  width: 50%;\n  float: right;\n}\n#intro .intro-info {\n  width: 50%;\n  float: left;\n}\n#intro .intro-info h2 {\n  color: #fff;\n  margin-bottom: 40px;\n  font-size: 48px;\n  font-weight: 700;\n}\n#intro .intro-info h2 span {\n  color: #74b5fc;\n  text-decoration: underline;\n}\n#intro .intro-info .btn-get-started,\n#intro .intro-info .btn-services {\n  font-family: \"Montserrat\", sans-serif;\n  font-size: 14px;\n  font-weight: 600;\n  letter-spacing: 1px;\n  display: inline-block;\n  padding: 10px 32px;\n  border-radius: 50px;\n  transition: 0.5s;\n  margin: 0 20px 20px 0;\n  color: #fff;\n}\n#intro .intro-info .btn-get-started {\n  background: #007bff;\n  border: 2px solid #007bff;\n  color: #fff;\n}\n#intro .intro-info .btn-get-started:hover {\n  background: none;\n  border-color: #fff;\n  color: #fff;\n}\n#intro .intro-info .btn-services {\n  border: 2px solid #fff;\n}\n#intro .intro-info .btn-services:hover {\n  background: #007bff;\n  border-color: #007bff;\n  color: #fff;\n}\n\n/*--------------------------------------------------------------\n# Navigation Menu\n--------------------------------------------------------------*/\n\n/* Desktop Navigation */\n.main-nav {\n  /* Drop Down */\n  /* Deep Drop Down */\n}\n.main-nav,\n.main-nav * {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\n.main-nav > ul > li {\n  position: relative;\n  white-space: nowrap;\n  float: left;\n}\n.main-nav a {\n  display: block;\n  position: relative;\n  color: #004289;\n  padding: 10px 15px;\n  transition: 0.3s;\n  font-size: 14px;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n}\n.main-nav a:hover,\n.main-nav .active > a,\n.main-nav li:hover > a {\n  color: #007bff;\n  text-decoration: none;\n}\n.main-nav .drop-down ul {\n  display: block;\n  position: absolute;\n  left: 0;\n  top: calc(100% + 30px);\n  z-index: 99;\n  opacity: 0;\n  visibility: hidden;\n  padding: 10px 0;\n  background: #fff;\n  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\n  transition: ease all 0.3s;\n}\n.main-nav .drop-down:hover > ul {\n  opacity: 1;\n  top: 100%;\n  visibility: visible;\n}\n.main-nav .drop-down li {\n  min-width: 180px;\n  position: relative;\n}\n.main-nav .drop-down ul a {\n  padding: 10px 20px;\n  font-size: 13px;\n  color: #004289;\n}\n.main-nav .drop-down ul a:hover,\n.main-nav .drop-down ul .active > a,\n.main-nav .drop-down ul li:hover > a {\n  color: #007bff;\n}\n.main-nav .drop-down > a:after {\n  content: \"\\F107\";\n  font-family: FontAwesome;\n  padding-left: 10px;\n}\n.main-nav .drop-down .drop-down ul {\n  top: 0;\n  left: calc(100% - 30px);\n}\n.main-nav .drop-down .drop-down:hover > ul {\n  opacity: 1;\n  top: 0;\n  left: 100%;\n}\n.main-nav .drop-down .drop-down > a {\n  padding-right: 35px;\n}\n.main-nav .drop-down .drop-down > a:after {\n  content: \"\\F105\";\n  position: absolute;\n  right: 15px;\n}\n\n/* Mobile Navigation */\n.mobile-nav {\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  z-index: 9999;\n  overflow-y: auto;\n  left: -260px;\n  width: 260px;\n  padding-top: 18px;\n  background: rgba(19, 39, 57, 0.8);\n  transition: 0.4s;\n}\n.mobile-nav * {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\n.mobile-nav a {\n  display: block;\n  position: relative;\n  color: #fff;\n  padding: 10px 20px;\n  font-weight: 500;\n}\n.mobile-nav a:hover,\n.mobile-nav .active > a,\n.mobile-nav li:hover > a {\n  color: #74b5fc;\n  text-decoration: none;\n}\n.mobile-nav .drop-down > a:after {\n  content: \"\\F078\";\n  font-family: FontAwesome;\n  padding-left: 10px;\n  position: absolute;\n  right: 15px;\n}\n.mobile-nav .active.drop-down > a:after {\n  content: \"\\F077\";\n}\n.mobile-nav .drop-down > a {\n  padding-right: 35px;\n}\n.mobile-nav .drop-down ul {\n  display: none;\n  overflow: hidden;\n}\n.mobile-nav .drop-down li {\n  padding-left: 20px;\n}\n.mobile-nav-toggle {\n  position: fixed;\n  right: 0;\n  top: 0;\n  z-index: 9998;\n  border: 0;\n  background: none;\n  font-size: 24px;\n  transition: all 0.4s;\n  outline: none !important;\n  line-height: 1;\n  cursor: pointer;\n  text-align: right;\n}\n.mobile-nav-toggle i {\n  margin: 18px 18px 0 0;\n  color: #004289;\n}\n.mobile-nav-overly {\n  width: 100%;\n  height: 100%;\n  z-index: 9997;\n  top: 0;\n  left: 0;\n  position: fixed;\n  background: rgba(19, 39, 57, 0.8);\n  overflow: hidden;\n  display: none;\n}\n.mobile-nav-active {\n  overflow: hidden;\n}\n.mobile-nav-active .mobile-nav {\n  left: 0;\n}\n.mobile-nav-active .mobile-nav-toggle i {\n  color: #fff;\n}\n\n/*--------------------------------------------------------------\n# Sections\n--------------------------------------------------------------*/\n\n/* Sections Header\n--------------------------------*/\n.section-header h3 {\n  font-size: 36px;\n  color: #283d50;\n  text-align: center;\n  font-weight: 500;\n  position: relative;\n}\n.section-header p {\n  text-align: center;\n  margin: auto;\n  font-size: 15px;\n  padding-bottom: 60px;\n  color: #556877;\n  width: 50%;\n}\n\n/* Section with background\n--------------------------------*/\n.section-bg {\n  background: #ecf5ff;\n}\n\n/* About Us Section\n--------------------------------*/\n#about {\n  background: #fff;\n  padding: 60px 0;\n}\n#about .about-container .background {\n  margin: 20px 0;\n}\n#about .about-container .content {\n  background: #fff;\n}\n#about .about-container .title {\n  color: #333;\n  font-weight: 700;\n  font-size: 32px;\n}\n#about .about-container p {\n  line-height: 26px;\n}\n#about .about-container p:last-child {\n  margin-bottom: 0;\n}\n#about .about-container .icon-box {\n  background: #fff;\n  background-size: cover;\n  padding: 0 0 30px 0;\n}\n#about .about-container .icon-box .icon {\n  float: left;\n  background: #fff;\n  width: 64px;\n  height: 64px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  text-align: center;\n  border-radius: 50%;\n  border: 2px solid #007bff;\n  transition: all 0.3s ease-in-out;\n}\n#about .about-container .icon-box .icon i {\n  color: #007bff;\n  font-size: 24px;\n}\n#about .about-container .icon-box:hover .icon {\n  background: #007bff;\n}\n#about .about-container .icon-box:hover .icon i {\n  color: #fff;\n}\n#about .about-container .icon-box .title {\n  margin-left: 80px;\n  font-weight: 600;\n  margin-bottom: 5px;\n  font-size: 18px;\n}\n#about .about-container .icon-box .title a {\n  color: #283d50;\n}\n#about .about-container .icon-box .description {\n  margin-left: 80px;\n  line-height: 24px;\n  font-size: 14px;\n}\n#about .about-extra {\n  padding-top: 60px;\n}\n#about .about-extra h4 {\n  font-weight: 600;\n  font-size: 24px;\n}\n\n/* Services Section\n--------------------------------*/\n#services {\n  padding: 60px 0 40px 0;\n  box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);\n}\n#services .box {\n  padding: 30px;\n  position: relative;\n  overflow: hidden;\n  border-radius: 10px;\n  margin: 0 10px 40px 10px;\n  background: #fff;\n  box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);\n  transition: all 0.3s ease-in-out;\n}\n#services .box:hover {\n  -webkit-transform: translateY(-5px);\n  transform: translateY(-5px);\n}\n#services .icon {\n  position: absolute;\n  left: -10px;\n  top: calc(50% - 32px);\n}\n#services .icon i {\n  font-size: 64px;\n  line-height: 1;\n  transition: 0.5s;\n}\n#services .title {\n  margin-left: 40px;\n  font-weight: 700;\n  margin-bottom: 15px;\n  font-size: 18px;\n}\n#services .title a {\n  color: #111;\n}\n#services .box:hover .title a {\n  color: #007bff;\n}\n#services .description {\n  font-size: 14px;\n  margin-left: 40px;\n  line-height: 24px;\n  margin-bottom: 0;\n}\n#why-us {\n  padding: 60px 0;\n  background: #004a99;\n}\n#why-us .section-header h3,\n#why-us .section-header p {\n  color: #fff;\n}\n#why-us .card {\n  background: #00458f;\n  border-color: #00458f;\n  border-radius: 10px;\n  margin: 0 15px;\n  padding: 15px 0;\n  text-align: center;\n  color: #fff;\n  transition: 0.3s ease-in-out;\n  height: 100%;\n}\n#why-us .card:hover {\n  background: #003b7a;\n  border-color: #003b7a;\n}\n#why-us .card i {\n  font-size: 48px;\n  padding-top: 15px;\n  color: #bfddfe;\n}\n#why-us .card h5 {\n  font-size: 22px;\n  font-weight: 600;\n}\n#why-us .card p {\n  font-size: 15px;\n  color: #d8eafe;\n}\n#why-us .card .readmore {\n  color: #fff;\n  font-weight: 600;\n  display: inline-block;\n  transition: 0.3s ease-in-out;\n  border-bottom: #00458f solid 2px;\n}\n#why-us .card .readmore:hover {\n  border-bottom: #fff solid 2px;\n}\n#why-us .counters {\n  padding-top: 40px;\n}\n#why-us .counters span {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: bold;\n  font-size: 48px;\n  display: block;\n  color: #fff;\n}\n#why-us .counters p {\n  padding: 0;\n  margin: 0 0 20px 0;\n  font-family: \"Montserrat\", sans-serif;\n  font-size: 14px;\n  color: #cce5ff;\n}\n\n/* Portfolio Section\n--------------------------------*/\n#portfolio {\n  padding: 60px 0;\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);\n}\n#portfolio #portfolio-flters {\n  padding: 0;\n  margin: 5px 0 35px 0;\n  list-style: none;\n  text-align: center;\n}\n#portfolio #portfolio-flters li {\n  cursor: pointer;\n  margin: 15px 15px 15px 0;\n  display: inline-block;\n  padding: 6px 20px;\n  font-size: 12px;\n  line-height: 20px;\n  color: #007bff;\n  border-radius: 50px;\n  text-transform: uppercase;\n  background: #ecf5ff;\n  margin-bottom: 5px;\n  transition: all 0.3s ease-in-out;\n}\n#portfolio #portfolio-flters li:hover,\n#portfolio #portfolio-flters li.filter-active {\n  background: #007bff;\n  color: #fff;\n}\n#portfolio #portfolio-flters li:last-child {\n  margin-right: 0;\n}\n#portfolio .portfolio-item {\n  position: relative;\n  overflow: hidden;\n  margin-bottom: 30px;\n}\n#portfolio .portfolio-item .portfolio-wrap {\n  overflow: hidden;\n  position: relative;\n  border-radius: 6px;\n  margin: 0;\n}\n#portfolio .portfolio-item .portfolio-wrap:hover img {\n  opacity: 0.4;\n  transition: 0.3s;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  text-align: center;\n  opacity: 0;\n  transition: 0.2s linear;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info h4 {\n  font-size: 22px;\n  line-height: 1px;\n  font-weight: 700;\n  margin-bottom: 14px;\n  padding-bottom: 0;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info h4 a {\n  color: #fff;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info h4 a:hover {\n  color: #007bff;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info p {\n  padding: 0;\n  margin: 0;\n  color: #e2effe;\n  font-weight: 500;\n  font-size: 14px;\n  text-transform: uppercase;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-preview,\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-details {\n  display: inline-block;\n  line-height: 1;\n  text-align: center;\n  width: 36px;\n  height: 36px;\n  background: #007bff;\n  border-radius: 50%;\n  margin: 10px 4px 0 4px;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-preview i,\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-details i {\n  padding-top: 6px;\n  font-size: 22px;\n  color: #fff;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-preview:hover,\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-details:hover {\n  background: #3395ff;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-preview:hover i,\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-details:hover i {\n  color: #fff;\n}\n#portfolio .portfolio-item .portfolio-wrap:hover {\n  background: #003166;\n}\n#portfolio .portfolio-item .portfolio-wrap:hover .portfolio-info {\n  opacity: 1;\n}\n\n/* Testimonials Section\n--------------------------------*/\n#testimonials {\n  padding: 60px 0;\n  box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);\n}\n#testimonials .section-header {\n  margin-bottom: 40px;\n}\n#testimonials .testimonial-item .testimonial-img {\n  width: 120px;\n  border-radius: 50%;\n  border: 4px solid #fff;\n  float: left;\n}\n#testimonials .testimonial-item h3 {\n  font-size: 20px;\n  font-weight: bold;\n  margin: 10px 0 5px 0;\n  color: #111;\n  margin-left: 140px;\n}\n#testimonials .testimonial-item h4 {\n  font-size: 14px;\n  color: #999;\n  margin: 0 0 15px 0;\n  margin-left: 140px;\n}\n#testimonials .testimonial-item p {\n  font-style: italic;\n  margin: 0 0 15px 140px;\n}\n#testimonials .owl-nav,\n#testimonials .owl-dots {\n  margin-top: 5px;\n  text-align: center;\n}\n#testimonials .owl-dot {\n  display: inline-block;\n  margin: 0 5px;\n  width: 12px;\n  height: 12px;\n  border-radius: 50%;\n  background-color: #ddd;\n}\n#testimonials .owl-dot.active {\n  background-color: #007bff;\n}\n\n/* Team Section\n--------------------------------*/\n#team {\n  background: #fff;\n  padding: 60px 0;\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);\n}\n#team .member {\n  text-align: center;\n  margin-bottom: 20px;\n  position: relative;\n  border-radius: 50%;\n  overflow: hidden;\n}\n#team .member .member-info {\n  opacity: 0;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  position: absolute;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  right: 0;\n  transition: 0.2s;\n}\n#team .member .member-info-content {\n  margin-top: 50px;\n  transition: margin 0.2s;\n}\n#team .member:hover .member-info {\n  background: rgba(0, 62, 128, 0.7);\n  opacity: 1;\n  transition: 0.4s;\n}\n#team .member:hover .member-info-content {\n  margin-top: 0;\n  transition: margin 0.4s;\n}\n#team .member h4 {\n  font-weight: 700;\n  margin-bottom: 2px;\n  font-size: 18px;\n  color: #fff;\n}\n#team .member span {\n  font-style: italic;\n  display: block;\n  font-size: 13px;\n  color: #fff;\n}\n#team .member .social {\n  margin-top: 15px;\n}\n#team .member .social a {\n  transition: none;\n  color: #fff;\n}\n#team .member .social a:hover {\n  color: #007bff;\n}\n#team .member .social i {\n  font-size: 18px;\n  margin: 0 2px;\n}\n\n/* Clients Section\n--------------------------------*/\n#clients {\n  padding: 60px 0;\n  box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);\n}\n#clients .clients-wrap {\n  border-top: 1px solid #d6eaff;\n  border-left: 1px solid #d6eaff;\n  margin-bottom: 30px;\n}\n#clients .client-logo {\n  padding: 64px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  border-right: 1px solid #d6eaff;\n  border-bottom: 1px solid #d6eaff;\n  overflow: hidden;\n  background: #fff;\n  height: 160px;\n}\n#clients .client-logo:hover img {\n  -webkit-transform: scale(1.2);\n  transform: scale(1.2);\n}\n#clients img {\n  transition: all 0.4s ease-in-out;\n}\n\n/* Contact Section\n--------------------------------*/\n#contact {\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);\n  padding: 60px 0;\n  overflow: hidden;\n}\n#contact .section-header {\n  padding-bottom: 30px;\n}\n#contact .contact-about h3 {\n  font-size: 36px;\n  margin: 0 0 10px 0;\n  padding: 0;\n  line-height: 1;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 300;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  color: #007bff;\n}\n#contact .contact-about p {\n  font-size: 14px;\n  line-height: 24px;\n  font-family: \"Montserrat\", sans-serif;\n  color: #888;\n}\n#contact .social-links {\n  padding-bottom: 20px;\n}\n#contact .social-links a {\n  font-size: 18px;\n  display: inline-block;\n  background: #fff;\n  color: #007bff;\n  line-height: 1;\n  padding: 8px 0;\n  margin-right: 4px;\n  border-radius: 50%;\n  text-align: center;\n  width: 36px;\n  height: 36px;\n  transition: 0.3s;\n  border: 1px solid #007bff;\n}\n#contact .social-links a:hover {\n  background: #007bff;\n  color: #fff;\n}\n#contact .info {\n  color: #283d50;\n}\n#contact .info i {\n  font-size: 32px;\n  color: #007bff;\n  float: left;\n  line-height: 1;\n}\n#contact .info p {\n  padding: 0 0 10px 36px;\n  line-height: 28px;\n  font-size: 14px;\n}\n#contact .form #sendmessage {\n  color: #007bff;\n  border: 1px solid #007bff;\n  display: none;\n  text-align: center;\n  padding: 15px;\n  font-weight: 600;\n  margin-bottom: 15px;\n}\n#contact .form #errormessage {\n  color: red;\n  display: none;\n  border: 1px solid red;\n  text-align: center;\n  padding: 15px;\n  font-weight: 600;\n  margin-bottom: 15px;\n}\n#contact .form #sendmessage.show,\n#contact .form #errormessage.show,\n#contact .form .show {\n  display: block;\n}\n#contact .form .validation {\n  color: red;\n  display: none;\n  margin: 0 0 20px;\n  font-weight: 400;\n  font-size: 13px;\n}\n#contact .form input,\n#contact .form textarea {\n  border-radius: 0;\n  box-shadow: none;\n  font-size: 14px;\n}\n#contact .form button {\n  background: #007bff;\n  border: 0;\n  border-radius: 20px;\n  padding: 8px 30px;\n  color: #fff;\n  transition: 0.3s;\n}\n#contact .form button:hover {\n  background: #0067d5;\n  cursor: pointer;\n}\n\n/*--------------------------------------------------------------\n# Footer\n--------------------------------------------------------------*/\n#footer {\n  background: #00428a;\n  padding: 0 0 30px 0;\n  color: #eee;\n  font-size: 14px;\n}\n#footer .footer-top {\n  background: #004a99;\n  padding: 60px 0 30px 0;\n}\n#footer .footer-top .footer-info {\n  margin-bottom: 30px;\n}\n#footer .footer-top .footer-info h3 {\n  font-size: 34px;\n  margin: 0 0 20px 0;\n  padding: 2px 0 2px 0;\n  line-height: 1;\n  font-family: \"Montserrat\", sans-serif;\n  color: #fff;\n  font-weight: 400;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n}\n#footer .footer-top .footer-info p {\n  font-size: 13px;\n  line-height: 24px;\n  margin-bottom: 0;\n  font-family: \"Montserrat\", sans-serif;\n  color: #ecf5ff;\n}\n#footer .footer-top .social-links a {\n  font-size: 18px;\n  display: inline-block;\n  background: #007bff;\n  color: #fff;\n  line-height: 1;\n  padding: 8px 0;\n  margin-right: 4px;\n  border-radius: 50%;\n  text-align: center;\n  width: 36px;\n  height: 36px;\n  transition: 0.3s;\n}\n#footer .footer-top .social-links a:hover {\n  background: #0067d5;\n  color: #fff;\n}\n#footer .footer-top h4 {\n  font-size: 14px;\n  font-weight: bold;\n  color: #fff;\n  text-transform: uppercase;\n  position: relative;\n  padding-bottom: 10px;\n}\n#footer .footer-top .footer-links {\n  margin-bottom: 30px;\n}\n#footer .footer-top .footer-links ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#footer .footer-top .footer-links ul li {\n  padding: 8px 0;\n}\n#footer .footer-top .footer-links ul li:first-child {\n  padding-top: 0;\n}\n#footer .footer-top .footer-links ul a {\n  color: #ecf5ff;\n}\n#footer .footer-top .footer-links ul a:hover {\n  color: #74b5fc;\n}\n#footer .footer-top .footer-contact {\n  margin-bottom: 30px;\n}\n#footer .footer-top .footer-contact p {\n  line-height: 26px;\n}\n#footer .footer-top .footer-newsletter {\n  margin-bottom: 30px;\n}\n#footer .footer-top .footer-newsletter input[type=\"email\"] {\n  border: 0;\n  padding: 6px 8px;\n  width: 65%;\n}\n#footer .footer-top .footer-newsletter input[type=\"submit\"] {\n  background: #007bff;\n  border: 0;\n  width: 35%;\n  padding: 6px 0;\n  text-align: center;\n  color: #fff;\n  transition: 0.3s;\n  cursor: pointer;\n}\n#footer .footer-top .footer-newsletter input[type=\"submit\"]:hover {\n  background: #0062cc;\n}\n#footer .copyright {\n  text-align: center;\n  padding-top: 30px;\n}\n#footer .credits {\n  text-align: center;\n  font-size: 13px;\n  color: #f1f7ff;\n}\n#footer .credits a {\n  color: #bfddfe;\n}\n#footer .credits a:hover {\n  color: #f1f7ff;\n}\n\n/*--------------------------------------------------------------\n# Responsive Media Queries\n--------------------------------------------------------------*/\n@media (min-width: 992px) {\n#testimonials .testimonial-item p {\n    width: 80%;\n}\n}\n@media (max-width: 991px) {\n#header {\n    height: 60px;\n    padding: 10px 0;\n}\n#header .logo h1 {\n    font-size: 28px;\n    padding: 8px 0;\n}\n#intro {\n    padding: 140px 0 60px 0;\n}\n#intro .intro-img {\n    width: 80%;\n    float: none;\n    margin: 0 auto 25px auto;\n}\n#intro .intro-info {\n    width: 80%;\n    float: none;\n    margin: auto;\n    text-align: center;\n}\n#why-us .card {\n    margin: 0;\n}\n}\n@media (max-width: 768px) {\n.back-to-top {\n    bottom: 15px;\n}\n}\n@media (max-width: 767px) {\n#intro .intro-info {\n    width: 100%;\n}\n#intro .intro-info h2 {\n    font-size: 34px;\n    margin-bottom: 30px;\n}\n.section-header p {\n    width: 100%;\n}\n#testimonials .testimonial-item {\n    text-align: center;\n}\n#testimonials .testimonial-item .testimonial-img {\n    float: none;\n    margin: auto;\n}\n#testimonials .testimonial-item h3,\n  #testimonials .testimonial-item h4,\n  #testimonials .testimonial-item p {\n    margin-left: 0;\n}\n}\n@media (max-width: 574px) {\n#intro {\n    padding: 100px 0 20px 0;\n}\n}", ""]);
+exports.push([module.i, "/*\n  Theme Name: NewBiz\n  Theme URL: https://bootstrapmade.com/newbiz-bootstrap-business-template/\n  Author: BootstrapMade.com\n  License: https://bootstrapmade.com/license/\n*/\n\n/*--------------------------------------------------------------\n# General\n--------------------------------------------------------------*/\nbody {\n  background: #fff;\n  color: #444;\n  font-family: \"Open Sans\", sans-serif;\n}\na {\n  color: #007bff;\n  transition: 0.5s;\n}\na:hover,\na:active,\na:focus {\n  color: #0b6bd3;\n  outline: none;\n  text-decoration: none;\n}\np {\n  padding: 0;\n  margin: 0 0 30px 0;\n}\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 400;\n  margin: 0 0 20px 0;\n  padding: 0;\n}\n\n/* Back to top button */\n.back-to-top {\n  position: fixed;\n  display: none;\n  background: #007bff;\n  color: #fff;\n  width: 44px;\n  height: 44px;\n  text-align: center;\n  line-height: 1;\n  font-size: 16px;\n  border-radius: 50%;\n  right: 15px;\n  bottom: 15px;\n  transition: background 0.5s;\n  z-index: 11;\n}\n.back-to-top i {\n  padding-top: 12px;\n  color: #fff;\n}\n\n/* Prelaoder */\n#preloader {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 9999;\n  overflow: hidden;\n  background: #fff;\n}\n#preloader:before {\n  content: \"\";\n  position: fixed;\n  top: calc(50% - 30px);\n  left: calc(50% - 30px);\n  border: 6px solid #f2f2f2;\n  border-top: 6px solid #007bff;\n  border-radius: 50%;\n  width: 60px;\n  height: 60px;\n  -webkit-animation: animate-preloader 1s linear infinite;\n  animation: animate-preloader 1s linear infinite;\n}\n@-webkit-keyframes animate-preloader {\n0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n@keyframes animate-preloader {\n0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n}\n100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n}\n}\n\n/*--------------------------------------------------------------\n# Header\n--------------------------------------------------------------*/\n#header {\n  height: 80px;\n  transition: all 0.5s;\n  z-index: 997;\n  transition: all 0.5s;\n  padding: 20px 0;\n  background: #fff;\n  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.3);\n}\n#header.header-scrolled,\n#header.header-pages {\n  height: 60px;\n  padding: 10px 0;\n}\n#header .logo h1 {\n  font-size: 36px;\n  margin: 0;\n  padding: 0;\n  line-height: 1;\n  font-weight: 400;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n}\n#header .logo h1 a,\n#header .logo h1 a:hover {\n  color: #00366f;\n  text-decoration: none;\n}\n#header .logo img {\n  padding: 0;\n  margin: 7px 0;\n  max-height: 40px;\n}\n.main-pages {\n  margin-top: 60px;\n}\n\n/*--------------------------------------------------------------\n# Intro Section\n--------------------------------------------------------------*/\n#intro {\n  width: 100%;\n  position: relative;\n  background: url(" + escape(__webpack_require__(/*! ../img/intro-bg.png */ "./resources/templates/newbiz/img/intro-bg.png")) + ") center bottom no-repeat;\n  background-size: cover;\n  padding: 200px 0 120px 0;\n}\n#intro .intro-img {\n  width: 50%;\n  float: right;\n}\n#intro .intro-info {\n  width: 50%;\n  float: left;\n}\n#intro .intro-info h2 {\n  color: #fff;\n  margin-bottom: 40px;\n  font-size: 48px;\n  font-weight: 700;\n}\n#intro .intro-info h2 span {\n  color: #74b5fc;\n  text-decoration: underline;\n}\n#intro .intro-info .btn-get-started,\n#intro .intro-info .btn-services {\n  font-family: \"Montserrat\", sans-serif;\n  font-size: 14px;\n  font-weight: 600;\n  letter-spacing: 1px;\n  display: inline-block;\n  padding: 10px 32px;\n  border-radius: 50px;\n  transition: 0.5s;\n  margin: 0 20px 20px 0;\n  color: #fff;\n}\n#intro .intro-info .btn-get-started {\n  background: #007bff;\n  border: 2px solid #007bff;\n  color: #fff;\n}\n#intro .intro-info .btn-get-started:hover {\n  background: none;\n  border-color: #fff;\n  color: #fff;\n}\n#intro .intro-info .btn-services {\n  border: 2px solid #fff;\n}\n#intro .intro-info .btn-services:hover {\n  background: #007bff;\n  border-color: #007bff;\n  color: #fff;\n}\n\n/*--------------------------------------------------------------\n# Navigation Menu\n--------------------------------------------------------------*/\n\n/* Desktop Navigation */\n.main-nav {\n  /* Drop Down */\n  /* Deep Drop Down */\n}\n.main-nav,\n.main-nav * {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\n.main-nav > ul > li {\n  position: relative;\n  white-space: nowrap;\n  float: left;\n}\n.main-nav a {\n  display: block;\n  position: relative;\n  color: #004289;\n  padding: 10px 15px;\n  transition: 0.3s;\n  font-size: 14px;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 500;\n}\n.main-nav a:hover,\n.main-nav .active > a,\n.main-nav li:hover > a {\n  color: #007bff;\n  text-decoration: none;\n}\n.main-nav .drop-down ul {\n  display: block;\n  position: absolute;\n  left: 0;\n  top: calc(100% + 30px);\n  z-index: 99;\n  opacity: 0;\n  visibility: hidden;\n  padding: 10px 0;\n  background: #fff;\n  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);\n  transition: ease all 0.3s;\n}\n.main-nav .drop-down:hover > ul {\n  opacity: 1;\n  top: 100%;\n  visibility: visible;\n}\n.main-nav .drop-down li {\n  min-width: 180px;\n  position: relative;\n}\n.main-nav .drop-down ul a {\n  padding: 10px 20px;\n  font-size: 13px;\n  color: #004289;\n}\n.main-nav .drop-down ul a:hover,\n.main-nav .drop-down ul .active > a,\n.main-nav .drop-down ul li:hover > a {\n  color: #007bff;\n}\n.main-nav .drop-down > a:after {\n  content: \"\\F107\";\n  font-family: FontAwesome;\n  padding-left: 10px;\n}\n.main-nav .drop-down .drop-down ul {\n  top: 0;\n  left: calc(100% - 30px);\n}\n.main-nav .drop-down .drop-down:hover > ul {\n  opacity: 1;\n  top: 0;\n  left: 100%;\n}\n.main-nav .drop-down .drop-down > a {\n  padding-right: 35px;\n}\n.main-nav .drop-down .drop-down > a:after {\n  content: \"\\F105\";\n  position: absolute;\n  right: 15px;\n}\n\n/* Mobile Navigation */\n.mobile-nav {\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  z-index: 9999;\n  overflow-y: auto;\n  left: -260px;\n  width: 260px;\n  padding-top: 18px;\n  background: rgba(19, 39, 57, 0.8);\n  transition: 0.4s;\n}\n.mobile-nav * {\n  margin: 0;\n  padding: 0;\n  list-style: none;\n}\n.mobile-nav a {\n  display: block;\n  position: relative;\n  color: #fff;\n  padding: 10px 20px;\n  font-weight: 500;\n}\n.mobile-nav a:hover,\n.mobile-nav .active > a,\n.mobile-nav li:hover > a {\n  color: #74b5fc;\n  text-decoration: none;\n}\n.mobile-nav .drop-down > a:after {\n  content: \"\\F078\";\n  font-family: FontAwesome;\n  padding-left: 10px;\n  position: absolute;\n  right: 15px;\n}\n.mobile-nav .active.drop-down > a:after {\n  content: \"\\F077\";\n}\n.mobile-nav .drop-down > a {\n  padding-right: 35px;\n}\n.mobile-nav .drop-down ul {\n  display: none;\n  overflow: hidden;\n}\n.mobile-nav .drop-down li {\n  padding-left: 20px;\n}\n.mobile-nav-toggle {\n  position: fixed;\n  right: 0;\n  top: 0;\n  z-index: 9998;\n  border: 0;\n  background: none;\n  font-size: 24px;\n  transition: all 0.4s;\n  outline: none !important;\n  line-height: 1;\n  cursor: pointer;\n  text-align: right;\n}\n.mobile-nav-toggle i {\n  margin: 18px 18px 0 0;\n  color: #004289;\n}\n.mobile-nav-overly {\n  width: 100%;\n  height: 100%;\n  z-index: 9997;\n  top: 0;\n  left: 0;\n  position: fixed;\n  background: rgba(19, 39, 57, 0.8);\n  overflow: hidden;\n  display: none;\n}\n.mobile-nav-active {\n  overflow: hidden;\n}\n.mobile-nav-active .mobile-nav {\n  left: 0;\n}\n.mobile-nav-active .mobile-nav-toggle i {\n  color: #fff;\n}\n\n/*--------------------------------------------------------------\n# Sections\n--------------------------------------------------------------*/\n\n/* Sections Header\n--------------------------------*/\n.section-header h3 {\n  font-size: 36px;\n  color: #283d50;\n  text-align: center;\n  font-weight: 500;\n  position: relative;\n}\n.section-header p {\n  text-align: center;\n  margin: auto;\n  font-size: 15px;\n  padding-bottom: 60px;\n  color: #556877;\n  width: 50%;\n}\n\n/* Section with background\n--------------------------------*/\n.section-bg {\n  background: #ecf5ff;\n}\n\n/* About Us Section\n--------------------------------*/\n#about {\n  background: #fff;\n  padding: 60px 0;\n}\n#about .about-container .background {\n  margin: 20px 0;\n}\n#about .about-container .content {\n  background: #fff;\n}\n#about .about-container .title {\n  color: #333;\n  font-weight: 700;\n  font-size: 32px;\n}\n#about .about-container p {\n  line-height: 26px;\n}\n#about .about-container p:last-child {\n  margin-bottom: 0;\n}\n#about .about-container .icon-box {\n  background: #fff;\n  background-size: cover;\n  padding: 0 0 30px 0;\n}\n#about .about-container .icon-box .icon {\n  float: left;\n  background: #fff;\n  width: 64px;\n  height: 64px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  text-align: center;\n  border-radius: 50%;\n  border: 2px solid #007bff;\n  transition: all 0.3s ease-in-out;\n}\n#about .about-container .icon-box .icon i {\n  color: #007bff;\n  font-size: 24px;\n}\n#about .about-container .icon-box:hover .icon {\n  background: #007bff;\n}\n#about .about-container .icon-box:hover .icon i {\n  color: #fff;\n}\n#about .about-container .icon-box .title {\n  margin-left: 80px;\n  font-weight: 600;\n  margin-bottom: 5px;\n  font-size: 18px;\n}\n#about .about-container .icon-box .title a {\n  color: #283d50;\n}\n#about .about-container .icon-box .description {\n  margin-left: 80px;\n  line-height: 24px;\n  font-size: 14px;\n}\n#about .about-extra {\n  padding-top: 60px;\n}\n#about .about-extra h4 {\n  font-weight: 600;\n  font-size: 24px;\n}\n\n/* Services Section\n--------------------------------*/\n#services {\n  padding: 60px 0 40px 0;\n  box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);\n}\n#services .box {\n  padding: 30px;\n  position: relative;\n  overflow: hidden;\n  border-radius: 10px;\n  margin: 0 10px 40px 10px;\n  background: #fff;\n  box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);\n  transition: all 0.3s ease-in-out;\n}\n#services .box:hover {\n  -webkit-transform: translateY(-5px);\n  transform: translateY(-5px);\n}\n#services .icon {\n  position: absolute;\n  left: -10px;\n  top: calc(50% - 32px);\n}\n#services .icon i {\n  font-size: 64px;\n  line-height: 1;\n  transition: 0.5s;\n}\n#services .title {\n  margin-left: 40px;\n  font-weight: 700;\n  margin-bottom: 15px;\n  font-size: 18px;\n}\n#services .title a {\n  color: #111;\n}\n#services .box:hover .title a {\n  color: #007bff;\n}\n#services .description {\n  font-size: 14px;\n  margin-left: 40px;\n  line-height: 24px;\n  margin-bottom: 0;\n}\n#why-us {\n  padding: 60px 0;\n  background: #004a99;\n}\n#why-us .section-header h3,\n#why-us .section-header p {\n  color: #fff;\n}\n#why-us .card {\n  background: #00458f;\n  border-color: #00458f;\n  border-radius: 10px;\n  margin: 0 15px;\n  padding: 15px 0;\n  text-align: center;\n  color: #fff;\n  transition: 0.3s ease-in-out;\n  height: 100%;\n}\n#why-us .card:hover {\n  background: #003b7a;\n  border-color: #003b7a;\n}\n#why-us .card i {\n  font-size: 48px;\n  padding-top: 15px;\n  color: #bfddfe;\n}\n#why-us .card h5 {\n  font-size: 22px;\n  font-weight: 600;\n}\n#why-us .card p {\n  font-size: 15px;\n  color: #d8eafe;\n}\n#why-us .card .readmore {\n  color: #fff;\n  font-weight: 600;\n  display: inline-block;\n  transition: 0.3s ease-in-out;\n  border-bottom: #00458f solid 2px;\n}\n#why-us .card .readmore:hover {\n  border-bottom: #fff solid 2px;\n}\n#why-us .counters {\n  padding-top: 40px;\n}\n#why-us .counters span {\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: bold;\n  font-size: 48px;\n  display: block;\n  color: #fff;\n}\n#why-us .counters p {\n  padding: 0;\n  margin: 0 0 20px 0;\n  font-family: \"Montserrat\", sans-serif;\n  font-size: 14px;\n  color: #cce5ff;\n}\n\n/* Portfolio Section\n--------------------------------*/\n#portfolio {\n  padding: 60px 0;\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);\n}\n#portfolio #portfolio-flters {\n  padding: 0;\n  margin: 5px 0 35px 0;\n  list-style: none;\n  text-align: center;\n}\n#portfolio #portfolio-flters li {\n  cursor: pointer;\n  margin: 15px 15px 15px 0;\n  display: inline-block;\n  padding: 6px 20px;\n  font-size: 12px;\n  line-height: 20px;\n  color: #007bff;\n  border-radius: 50px;\n  text-transform: uppercase;\n  background: #ecf5ff;\n  margin-bottom: 5px;\n  transition: all 0.3s ease-in-out;\n}\n#portfolio #portfolio-flters li:hover,\n#portfolio #portfolio-flters li.filter-active {\n  background: #007bff;\n  color: #fff;\n}\n#portfolio #portfolio-flters li:last-child {\n  margin-right: 0;\n}\n#portfolio .portfolio-item {\n  position: relative;\n  overflow: hidden;\n  margin-bottom: 30px;\n}\n#portfolio .portfolio-item .portfolio-wrap {\n  overflow: hidden;\n  position: relative;\n  border-radius: 6px;\n  margin: 0;\n}\n#portfolio .portfolio-item .portfolio-wrap:hover img {\n  opacity: 0.4;\n  transition: 0.3s;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  text-align: center;\n  opacity: 0;\n  transition: 0.2s linear;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info h4 {\n  font-size: 22px;\n  line-height: 1px;\n  font-weight: 700;\n  margin-bottom: 14px;\n  padding-bottom: 0;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info h4 a {\n  color: #fff;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info h4 a:hover {\n  color: #007bff;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info p {\n  padding: 0;\n  margin: 0;\n  color: #e2effe;\n  font-weight: 500;\n  font-size: 14px;\n  text-transform: uppercase;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-preview,\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-details {\n  display: inline-block;\n  line-height: 1;\n  text-align: center;\n  width: 36px;\n  height: 36px;\n  background: #007bff;\n  border-radius: 50%;\n  margin: 10px 4px 0 4px;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-preview i,\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-details i {\n  padding-top: 6px;\n  font-size: 22px;\n  color: #fff;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-preview:hover,\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-details:hover {\n  background: #3395ff;\n}\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-preview:hover i,\n#portfolio .portfolio-item .portfolio-wrap .portfolio-info .link-details:hover i {\n  color: #fff;\n}\n#portfolio .portfolio-item .portfolio-wrap:hover {\n  background: #003166;\n}\n#portfolio .portfolio-item .portfolio-wrap:hover .portfolio-info {\n  opacity: 1;\n}\n\n/* Testimonials Section\n--------------------------------*/\n#testimonials {\n  padding: 60px 0;\n  box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);\n}\n#testimonials .section-header {\n  margin-bottom: 40px;\n}\n#testimonials .testimonial-item .testimonial-img {\n  width: 120px;\n  border-radius: 50%;\n  border: 4px solid #fff;\n  float: left;\n}\n#testimonials .testimonial-item h3 {\n  font-size: 20px;\n  font-weight: bold;\n  margin: 10px 0 5px 0;\n  color: #111;\n  margin-left: 140px;\n}\n#testimonials .testimonial-item h4 {\n  font-size: 14px;\n  color: #999;\n  margin: 0 0 15px 0;\n  margin-left: 140px;\n}\n#testimonials .testimonial-item p {\n  font-style: italic;\n  margin: 0 0 15px 140px;\n}\n#testimonials .owl-nav,\n#testimonials .owl-dots {\n  margin-top: 5px;\n  text-align: center;\n}\n#testimonials .owl-dot {\n  display: inline-block;\n  margin: 0 5px;\n  width: 12px;\n  height: 12px;\n  border-radius: 50%;\n  background-color: #ddd;\n}\n#testimonials .owl-dot.active {\n  background-color: #007bff;\n}\n\n/* Team Section\n--------------------------------*/\n#team {\n  background: #fff;\n  padding: 60px 0;\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);\n}\n#team .member {\n  text-align: center;\n  margin-bottom: 20px;\n  position: relative;\n  border-radius: 50%;\n  overflow: hidden;\n}\n#team .member .member-info {\n  opacity: 0;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  position: absolute;\n  bottom: 0;\n  top: 0;\n  left: 0;\n  right: 0;\n  transition: 0.2s;\n}\n#team .member .member-info-content {\n  margin-top: 50px;\n  transition: margin 0.2s;\n}\n#team .member:hover .member-info {\n  background: rgba(0, 62, 128, 0.7);\n  opacity: 1;\n  transition: 0.4s;\n}\n#team .member:hover .member-info-content {\n  margin-top: 0;\n  transition: margin 0.4s;\n}\n#team .member h4 {\n  font-weight: 700;\n  margin-bottom: 2px;\n  font-size: 18px;\n  color: #fff;\n}\n#team .member span {\n  font-style: italic;\n  display: block;\n  font-size: 13px;\n  color: #fff;\n}\n#team .member .social {\n  margin-top: 15px;\n}\n#team .member .social a {\n  transition: none;\n  color: #fff;\n}\n#team .member .social a:hover {\n  color: #007bff;\n}\n#team .member .social i {\n  font-size: 18px;\n  margin: 0 2px;\n}\n\n/* Clients Section\n--------------------------------*/\n#clients {\n  padding: 60px 0;\n  box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);\n}\n#clients .clients-wrap {\n  border-top: 1px solid #d6eaff;\n  border-left: 1px solid #d6eaff;\n  margin-bottom: 30px;\n}\n#clients .client-logo {\n  padding: 64px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  border-right: 1px solid #d6eaff;\n  border-bottom: 1px solid #d6eaff;\n  overflow: hidden;\n  background: #fff;\n  height: 160px;\n}\n#clients .client-logo:hover img {\n  -webkit-transform: scale(1.2);\n  transform: scale(1.2);\n}\n#clients img {\n  transition: all 0.4s ease-in-out;\n}\n\n/* Contact Section\n--------------------------------*/\n#contact {\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);\n  padding: 60px 0;\n  overflow: hidden;\n}\n#contact .section-header {\n  padding-bottom: 30px;\n}\n#contact .contact-about h3 {\n  font-size: 36px;\n  margin: 0 0 10px 0;\n  padding: 0;\n  line-height: 1;\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 300;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  color: #007bff;\n}\n#contact .contact-about p {\n  font-size: 14px;\n  line-height: 24px;\n  font-family: \"Montserrat\", sans-serif;\n  color: #888;\n}\n#contact .social-links {\n  padding-bottom: 20px;\n}\n#contact .social-links a {\n  font-size: 18px;\n  display: inline-block;\n  background: #fff;\n  color: #007bff;\n  line-height: 1;\n  padding: 8px 0;\n  margin-right: 4px;\n  border-radius: 50%;\n  text-align: center;\n  width: 36px;\n  height: 36px;\n  transition: 0.3s;\n  border: 1px solid #007bff;\n}\n#contact .social-links a:hover {\n  background: #007bff;\n  color: #fff;\n}\n#contact .info {\n  color: #283d50;\n}\n#contact .info i {\n  font-size: 32px;\n  color: #007bff;\n  float: left;\n  line-height: 1;\n}\n#contact .info p {\n  padding: 0 0 10px 36px;\n  line-height: 28px;\n  font-size: 14px;\n}\n#contact .form #sendmessage {\n  color: #007bff;\n  border: 1px solid #007bff;\n  display: none;\n  text-align: center;\n  padding: 15px;\n  font-weight: 600;\n  margin-bottom: 15px;\n}\n#contact .form #errormessage {\n  color: red;\n  display: none;\n  border: 1px solid red;\n  text-align: center;\n  padding: 15px;\n  font-weight: 600;\n  margin-bottom: 15px;\n}\n#contact .form #sendmessage.show,\n#contact .form #errormessage.show,\n#contact .form .show {\n  display: block;\n}\n#contact .form .validation {\n  color: red;\n  display: none;\n  margin: 0 0 20px;\n  font-weight: 400;\n  font-size: 13px;\n}\n#contact .form input,\n#contact .form textarea {\n  border-radius: 0;\n  box-shadow: none;\n  font-size: 14px;\n}\n#contact .form button {\n  background: #007bff;\n  border: 0;\n  border-radius: 20px;\n  padding: 8px 30px;\n  color: #fff;\n  transition: 0.3s;\n}\n#contact .form button:hover {\n  background: #0067d5;\n  cursor: pointer;\n}\n\n/*--------------------------------------------------------------\n# Footer\n--------------------------------------------------------------*/\n#footer {\n  background: #00428a;\n  padding: 0 0 30px 0;\n  color: #eee;\n  font-size: 14px;\n}\n#footer .footer-top {\n  background: #004a99;\n  padding: 60px 0 30px 0;\n}\n#footer .footer-top .footer-info {\n  margin-bottom: 30px;\n}\n#footer .footer-top .footer-info h3 {\n  font-size: 34px;\n  margin: 0 0 20px 0;\n  padding: 2px 0 2px 0;\n  line-height: 1;\n  font-family: \"Montserrat\", sans-serif;\n  color: #fff;\n  font-weight: 400;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n}\n#footer .footer-top .footer-info p {\n  font-size: 13px;\n  line-height: 24px;\n  margin-bottom: 0;\n  font-family: \"Montserrat\", sans-serif;\n  color: #ecf5ff;\n}\n#footer .footer-top .social-links a {\n  font-size: 18px;\n  display: inline-block;\n  background: #007bff;\n  color: #fff;\n  line-height: 1;\n  padding: 8px 0;\n  margin-right: 4px;\n  border-radius: 50%;\n  text-align: center;\n  width: 36px;\n  height: 36px;\n  transition: 0.3s;\n}\n#footer .footer-top .social-links a:hover {\n  background: #0067d5;\n  color: #fff;\n}\n#footer .footer-top h4 {\n  font-size: 14px;\n  font-weight: bold;\n  color: #fff;\n  text-transform: uppercase;\n  position: relative;\n  padding-bottom: 10px;\n}\n#footer .footer-top .footer-links {\n  margin-bottom: 30px;\n}\n#footer .footer-top .footer-links ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#footer .footer-top .footer-links ul li {\n  padding: 8px 0;\n}\n#footer .footer-top .footer-links ul li:first-child {\n  padding-top: 0;\n}\n#footer .footer-top .footer-links ul a {\n  color: #ecf5ff;\n}\n#footer .footer-top .footer-links ul a:hover {\n  color: #74b5fc;\n}\n#footer .footer-top .footer-contact {\n  margin-bottom: 30px;\n}\n#footer .footer-top .footer-contact p {\n  line-height: 26px;\n}\n#footer .footer-top .footer-newsletter {\n  margin-bottom: 30px;\n}\n#footer .footer-top .footer-newsletter input[type=\"email\"] {\n  border: 0;\n  padding: 6px 8px;\n  width: 65%;\n}\n#footer .footer-top .footer-newsletter input[type=\"submit\"] {\n  background: #007bff;\n  border: 0;\n  width: 35%;\n  padding: 6px 0;\n  text-align: center;\n  color: #fff;\n  transition: 0.3s;\n  cursor: pointer;\n}\n#footer .footer-top .footer-newsletter input[type=\"submit\"]:hover {\n  background: #0062cc;\n}\n#footer .copyright {\n  text-align: center;\n  padding-top: 30px;\n}\n#footer .credits {\n  text-align: center;\n  font-size: 13px;\n  color: #f1f7ff;\n}\n#footer .credits a {\n  color: #bfddfe;\n}\n#footer .credits a:hover {\n  color: #f1f7ff;\n}\n.feature-list-content ul {\n  list-style-image:url(" + escape(__webpack_require__(/*! ../img/icon-feature-list.svg */ "./resources/templates/newbiz/img/icon-feature-list.svg")) + ");\n}\n\n/*--------------------------------------------------------------\n# Responsive Media Queries\n--------------------------------------------------------------*/\n@media (min-width: 992px) {\n#testimonials .testimonial-item p {\n    width: 80%;\n}\n}\n@media (max-width: 991px) {\n#header {\n    height: 60px;\n    padding: 10px 0;\n}\n#header .logo h1 {\n    font-size: 28px;\n    padding: 8px 0;\n}\n#intro {\n    padding: 140px 0 60px 0;\n}\n#intro .intro-img {\n    width: 80%;\n    float: none;\n    margin: 0 auto 25px auto;\n}\n#intro .intro-info {\n    width: 80%;\n    float: none;\n    margin: auto;\n    text-align: center;\n}\n#why-us .card {\n    margin: 0;\n}\n}\n@media (max-width: 768px) {\n.back-to-top {\n    bottom: 15px;\n}\n}\n@media (max-width: 767px) {\n#intro .intro-info {\n    width: 100%;\n}\n#intro .intro-info h2 {\n    font-size: 34px;\n    margin-bottom: 30px;\n}\n.section-header p {\n    width: 100%;\n}\n#testimonials .testimonial-item {\n    text-align: center;\n}\n#testimonials .testimonial-item .testimonial-img {\n    float: none;\n    margin: auto;\n}\n#testimonials .testimonial-item h3,\n  #testimonials .testimonial-item h4,\n  #testimonials .testimonial-item p {\n    margin-left: 0;\n}\n}\n@media (max-width: 574px) {\n#intro {\n    padding: 100px 0 20px 0;\n}\n}", ""]);
 
 // exports
 
@@ -6581,7 +6624,7 @@ exports.push([module.i, "/*\n  Theme Name: NewBiz\n  Theme URL: https://bootstra
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/bootstrap/css/bootstrap.min.css":
 /*!*********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/bootstrap/css/bootstrap.min.css ***!
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/bootstrap/css/bootstrap.min.css ***!
   \*********************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6600,7 +6643,7 @@ exports.push([module.i, "/*!\n * Bootstrap v4.2.1 (https://getbootstrap.com/)\n 
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/font-awesome/css/font-awesome.min.css":
 /*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/font-awesome/css/font-awesome.min.css ***!
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/font-awesome/css/font-awesome.min.css ***!
   \***************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -6620,7 +6663,7 @@ exports.push([module.i, "/*!\n *  Font Awesome 4.7.0 by @davegandy - http://font
 
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/ionicons/css/ionicons.min.css":
 /*!*******************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/ionicons/css/ionicons.min.css ***!
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./resources/templates/newbiz/lib/ionicons/css/ionicons.min.css ***!
   \*******************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -82639,15 +82682,15 @@ var index = (function () {
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/HomeNewbiz.vue?vue&type=style&index=0&id=e9bf530a&scoped=true&lang=css&":
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/Mainpage.vue?vue&type=style&index=0&id=1884ff12&scoped=true&lang=css&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/HomeNewbiz.vue?vue&type=style&index=0&id=e9bf530a&scoped=true&lang=css& ***!
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/webpage/Mainpage.vue?vue&type=style&index=0&id=1884ff12&scoped=true&lang=css& ***!
   \***************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./HomeNewbiz.vue?vue&type=style&index=0&id=e9bf530a&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/HomeNewbiz.vue?vue&type=style&index=0&id=e9bf530a&scoped=true&lang=css&");
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--7-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Mainpage.vue?vue&type=style&index=0&id=1884ff12&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/Mainpage.vue?vue&type=style&index=0&id=1884ff12&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -83429,9 +83472,40 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/HomeNewbiz.vue?vue&type=template&id=e9bf530a&scoped=true&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/EmptyComponent.vue?vue&type=template&id=567d37fa&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/webpage/EmptyComponent.vue?vue&type=template&id=567d37fa& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("p", [_vm._v("  ")])])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/Mainpage.vue?vue&type=template&id=1884ff12&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/HomeNewbiz.vue?vue&type=template&id=e9bf530a&scoped=true& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/webpage/Mainpage.vue?vue&type=template&id=1884ff12&scoped=true& ***!
   \********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -83516,7 +83590,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Testinomi")]
+                [_vm._v("Testimonials")]
               )
             ]),
             _vm._v(" "),
@@ -83547,265 +83621,26 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("section", { staticClass: "clearfix", attrs: { id: "intro" } }, [
-      _c("div", { staticClass: "container" }, [
-        _vm._m(1),
+    _c(
+      "main",
+      { attrs: { id: "main" } },
+      [
+        _c(_vm.content.area_one, { tag: "component" }),
         _vm._v(" "),
-        _c("div", { staticClass: "intro-info" }, [
-          _vm._m(2),
-          _vm._v(" "),
-          _c("div", [
-            _c(
-              "a",
-              {
-                directives: [
-                  {
-                    name: "scroll-to",
-                    rawName: "v-scroll-to",
-                    value: "#contact",
-                    expression: "'#contact'"
-                  }
-                ],
-                staticClass: "btn-get-started scrollto",
-                attrs: { href: "javascript:void(0)" },
-                on: {
-                  click: function($event) {
-                    return _vm.activate(4)
-                  }
-                }
-              },
-              [_vm._v("Request Demo")]
-            )
-          ])
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("main", { attrs: { id: "main" } }, [
-      _vm._m(3),
-      _vm._v(" "),
-      _c(
-        "section",
-        { staticClass: "section-bg", attrs: { id: "testimonials" } },
-        [
-          _c("br"),
-          _c("br"),
-          _vm._v(" "),
-          _c("div", { staticClass: "container" }, [
-            _vm._m(4),
-            _vm._v(" "),
-            _c("div", { staticClass: "row justify-content-center" }, [
-              _c(
-                "div",
-                { staticClass: "col-lg-8" },
-                [
-                  _c("carousel", {
-                    attrs: { data: _vm.$store.state.testimonials }
-                  })
-                ],
-                1
-              )
-            ])
-          ]),
-          _c("br"),
-          _c("br"),
-          _c("br"),
-          _c("br")
-        ]
-      ),
-      _vm._v(" "),
-      _c("section", { attrs: { id: "contact" } }, [
-        _c("br"),
-        _c("br"),
-        _c("br"),
+        _c(_vm.content.area_two, { tag: "component" }),
         _vm._v(" "),
-        _c("div", { staticClass: "container-fluid" }, [
-          _vm._m(5),
-          _vm._v(" "),
-          _c("div", { staticClass: "row wow fadeInUp" }, [
-            _vm._m(6),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-6" }, [
-              _vm._m(7),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form" },
-                [
-                  _c(
-                    "el-form",
-                    {
-                      attrs: {
-                        "label-width": "150px",
-                        "label-position": "right"
-                      }
-                    },
-                    [
-                      _c(
-                        "el-form-item",
-                        {
-                          class: _vm.formErrors.name ? "is-error" : "",
-                          attrs: { label: "Name" }
-                        },
-                        [
-                          _c("el-input", {
-                            attrs: { type: "text", placeholder: "Name" },
-                            model: {
-                              value: _vm.contact_us.name,
-                              callback: function($$v) {
-                                _vm.$set(_vm.contact_us, "name", $$v)
-                              },
-                              expression: "contact_us.name"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _vm.formErrors.name
-                            ? _c(
-                                "div",
-                                { staticClass: "el-form-item__error" },
-                                [_vm._v(_vm._s(_vm.formErrors.name[0]))]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-form-item",
-                        {
-                          class: _vm.formErrors.email ? "is-error" : "",
-                          attrs: { label: "Email" }
-                        },
-                        [
-                          _c("el-input", {
-                            attrs: { type: "text", placeholder: "Email" },
-                            model: {
-                              value: _vm.contact_us.email,
-                              callback: function($$v) {
-                                _vm.$set(_vm.contact_us, "email", $$v)
-                              },
-                              expression: "contact_us.email"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _vm.formErrors.email
-                            ? _c(
-                                "div",
-                                { staticClass: "el-form-item__error" },
-                                [_vm._v(_vm._s(_vm.formErrors.email[0]))]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-form-item",
-                        {
-                          class: _vm.formErrors.subject ? "is-error" : "",
-                          attrs: { label: "Subject" }
-                        },
-                        [
-                          _c("el-input", {
-                            attrs: { type: "text", placeholder: "Subject" },
-                            model: {
-                              value: _vm.contact_us.subject,
-                              callback: function($$v) {
-                                _vm.$set(_vm.contact_us, "subject", $$v)
-                              },
-                              expression: "contact_us.subject"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _vm.formErrors.subject
-                            ? _c(
-                                "div",
-                                { staticClass: "el-form-item__error" },
-                                [_vm._v(_vm._s(_vm.formErrors.subject[0]))]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "el-form-item",
-                        {
-                          class: _vm.formErrors.messages ? "is-error" : "",
-                          attrs: { label: "Messages" }
-                        },
-                        [
-                          _c("el-input", {
-                            attrs: {
-                              type: "textarea",
-                              rows: 2,
-                              placeholder: "Messages"
-                            },
-                            model: {
-                              value: _vm.contact_us.messages,
-                              callback: function($$v) {
-                                _vm.$set(_vm.contact_us, "messages", $$v)
-                              },
-                              expression: "contact_us.messages"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _vm.formErrors.messages
-                            ? _c(
-                                "div",
-                                { staticClass: "el-form-item__error" },
-                                [_vm._v(_vm._s(_vm.formErrors.messages[0]))]
-                              )
-                            : _vm._e()
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "text-center" },
-                        [
-                          _c(
-                            "el-button",
-                            {
-                              directives: [
-                                {
-                                  name: "loading",
-                                  rawName: "v-loading.fullscreen.lock",
-                                  value: _vm.loading,
-                                  expression: "loading",
-                                  modifiers: { fullscreen: true, lock: true }
-                                }
-                              ],
-                              attrs: { type: "primary" },
-                              on: { click: _vm.onSendMessages }
-                            },
-                            [
-                              _vm._v(
-                                "\n                                        Send Message\n                                "
-                              )
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ])
-          ])
-        ])
-      ])
-    ]),
+        _c(_vm.content.area_thre, { tag: "component" }),
+        _vm._v(" "),
+        _c(_vm.content.area_four, { tag: "component" })
+      ],
+      1
+    ),
     _vm._v(" "),
     _c("footer", { attrs: { id: "footer" } }, [
       _c("div", { staticClass: "footer-top" }, [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row" }, [
-            _vm._m(8),
+            _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "col-lg-2 col-md-6 footer-links" }, [
               _c("h4", [_vm._v("Useful Links")]),
@@ -83905,14 +83740,14 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm._m(9),
+            _vm._m(2),
             _vm._v(" "),
-            _vm._m(10)
+            _vm._m(3)
           ])
         ])
       ]),
       _vm._v(" "),
-      _vm._m(11)
+      _vm._m(4)
     ])
   ])
 }
@@ -83927,193 +83762,6 @@ var staticRenderFns = [
           staticClass: "img-fluid",
           attrs: { src: "images/logo.png", alt: "" }
         })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "intro-img" }, [
-      _c("img", {
-        staticClass: "img-fluid",
-        attrs: { src: "images/intro-img.svg", alt: "" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h2", [
-      _vm._v("Legal Complience"),
-      _c("br"),
-      _c("span", [_vm._v("System")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { attrs: { id: "about" } }, [
-      _c("br"),
-      _c("br"),
-      _c("br"),
-      _c("br"),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("header", { staticClass: "section-header" }, [
-          _c("h3", [_vm._v("Application Features")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v("Find all the features you need to get up and running fast.")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row about-container" }, [
-          _c("div", { staticClass: "col-lg-6 content order-lg-1 order-2" }, [
-            _c("div", { staticClass: "icon-box wow fadeInUp" }, [
-              _c("div", { staticClass: "icon" }, [
-                _c("i", { staticClass: "fa fa-shopping-bag" })
-              ]),
-              _vm._v(" "),
-              _c("h4", { staticClass: "title" }, [
-                _c("a", { attrs: { href: "" } }, [_vm._v("Legal")])
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "description" }, [
-                _vm._v(
-                  "\n                                Aggrement Review, Scanned Agreement Request, L&C Advice, Product Review, Corporeate Document, Agreement,\n                                Partner's Corporate Document, Agreement Template\n                            "
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "icon-box wow fadeInUp",
-                attrs: { "data-wow-delay": "0.2s" }
-              },
-              [
-                _c("div", { staticClass: "icon" }, [
-                  _c("i", { staticClass: "fa fa-photo" })
-                ]),
-                _vm._v(" "),
-                _c("h4", { staticClass: "title" }, [
-                  _c("a", { attrs: { href: "" } }, [_vm._v("Complience")])
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "description" }, [
-                  _vm._v(
-                    "\n                                Annual Attestation, COC Anual Declaration COI Adhoc Declaration, Declaration for bidding, Event Approval,\n                                Gift/Invitation Acceptance, Gift/Intitation Granting, Vendor Integrity Screening,\n                                Corporate Document Request, Anti-Money Laundring and Economic Sanctions, Gap Analysis (Regulatory Complience)\n                            "
-                  )
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "icon-box wow fadeInUp",
-                attrs: { "data-wow-delay": "0.4s" }
-              },
-              [
-                _c("div", { staticClass: "icon" }, [
-                  _c("i", { staticClass: "fa fa-bar-chart" })
-                ]),
-                _vm._v(" "),
-                _c("h4", { staticClass: "title" }, [
-                  _c("a", { attrs: { href: "" } }, [
-                    _vm._v("Corporate Secretary")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "description" }, [
-                  _vm._v(
-                    "\n                                Exporting Expatriate Working Permit, Fit & Proper Test Request, New Experiate Working Permit,\n                                Power of Attorney Request, Govermment Correspondence Request, Corporate Document (Document Archive),\n                                Regulatory Reporting (Regulatory Complience).\n                            "
-                  )
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "col-lg-6 background order-lg-2 order-1 wow fadeInUp"
-            },
-            [
-              _c("img", {
-                staticClass: "img-fluid",
-                attrs: { src: "images/about-img.svg", alt: "" }
-              })
-            ]
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("header", { staticClass: "section-header" }, [
-      _c("h3", [_vm._v("Testimonials")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "section-header" }, [
-      _c("h3", [_vm._v("Contact Us")]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("If you need our services or initial discussion, do contact us ")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-6" }, [
-      _c("div", { staticClass: "map mb-4 mb-lg-0" }, [
-        _c("iframe", {
-          staticStyle: { border: "0", width: "100%", height: "412px" },
-          attrs: {
-            src:
-              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.1643424773238!2d106.84004611409846!3d-6.242060295481669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3bf4d9ba483%3A0xd7437dddb6523c21!2sPT+Lamjaya+Global+Solusi!5e0!3m2!1sen!2sid!4v1542865080420",
-            frameborder: "0",
-            allowfullscreen: ""
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-7 info" }, [
-        _c("i", { staticClass: "ion-ios-location-outline" }),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Graha Mustika Ratu 4th Floor Jl. Jend. Gatot Subroto No.Kav 74-75 Menteng Dalam Tebet Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12870 Indonesia"
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-5 info" }, [
-        _c("i", { staticClass: "ion-ios-email-outline" }),
-        _vm._v(" "),
-        _c("p", [_vm._v("info@lamsolusi.com")]),
-        _vm._v(" "),
-        _c("i", { staticClass: "ion-ios-telephone-outline" }),
-        _vm._v(" "),
-        _c("p", [_vm._v("021-8306647")])
       ])
     ])
   },
@@ -84220,6 +83868,587 @@ var staticRenderFns = [
         _c("strong", [_vm._v("Lamjaya Global Solusi")]),
         _vm._v(". All Rights Reserved\n            ")
       ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/component/newbiz/ContactComponent.vue?vue&type=template&id=7511cfad&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/webpage/component/newbiz/ContactComponent.vue?vue&type=template&id=7511cfad& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { attrs: { id: "contact" } }, [
+    _c("br"),
+    _c("br"),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "container-fluid" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "row wow fadeInUp" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-lg-6" }, [
+          _vm._m(2),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form" },
+            [
+              _c(
+                "el-form",
+                {
+                  attrs: { "label-width": "150px", "label-position": "right" }
+                },
+                [
+                  _c(
+                    "el-form-item",
+                    {
+                      class: _vm.formErrors.name ? "is-error" : "",
+                      attrs: { label: "Name" }
+                    },
+                    [
+                      _c("el-input", {
+                        attrs: { type: "text", placeholder: "Name" },
+                        model: {
+                          value: _vm.contact_us.name,
+                          callback: function($$v) {
+                            _vm.$set(_vm.contact_us, "name", $$v)
+                          },
+                          expression: "contact_us.name"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm.formErrors.name
+                        ? _c("div", { staticClass: "el-form-item__error" }, [
+                            _vm._v(_vm._s(_vm.formErrors.name[0]))
+                          ])
+                        : _vm._e()
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-form-item",
+                    {
+                      class: _vm.formErrors.email ? "is-error" : "",
+                      attrs: { label: "Email" }
+                    },
+                    [
+                      _c("el-input", {
+                        attrs: { type: "text", placeholder: "Email" },
+                        model: {
+                          value: _vm.contact_us.email,
+                          callback: function($$v) {
+                            _vm.$set(_vm.contact_us, "email", $$v)
+                          },
+                          expression: "contact_us.email"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm.formErrors.email
+                        ? _c("div", { staticClass: "el-form-item__error" }, [
+                            _vm._v(_vm._s(_vm.formErrors.email[0]))
+                          ])
+                        : _vm._e()
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-form-item",
+                    {
+                      class: _vm.formErrors.subject ? "is-error" : "",
+                      attrs: { label: "Subject" }
+                    },
+                    [
+                      _c("el-input", {
+                        attrs: { type: "text", placeholder: "Subject" },
+                        model: {
+                          value: _vm.contact_us.subject,
+                          callback: function($$v) {
+                            _vm.$set(_vm.contact_us, "subject", $$v)
+                          },
+                          expression: "contact_us.subject"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm.formErrors.subject
+                        ? _c("div", { staticClass: "el-form-item__error" }, [
+                            _vm._v(_vm._s(_vm.formErrors.subject[0]))
+                          ])
+                        : _vm._e()
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-form-item",
+                    {
+                      class: _vm.formErrors.messages ? "is-error" : "",
+                      attrs: { label: "Messages" }
+                    },
+                    [
+                      _c("el-input", {
+                        attrs: {
+                          type: "textarea",
+                          rows: 2,
+                          placeholder: "Messages"
+                        },
+                        model: {
+                          value: _vm.contact_us.messages,
+                          callback: function($$v) {
+                            _vm.$set(_vm.contact_us, "messages", $$v)
+                          },
+                          expression: "contact_us.messages"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm.formErrors.messages
+                        ? _c("div", { staticClass: "el-form-item__error" }, [
+                            _vm._v(_vm._s(_vm.formErrors.messages[0]))
+                          ])
+                        : _vm._e()
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "text-center" },
+                    [
+                      _c(
+                        "el-button",
+                        {
+                          directives: [
+                            {
+                              name: "loading",
+                              rawName: "v-loading.fullscreen.lock",
+                              value: _vm.loading,
+                              expression: "loading",
+                              modifiers: { fullscreen: true, lock: true }
+                            }
+                          ],
+                          attrs: { type: "primary" },
+                          on: { click: _vm.onSendMessages }
+                        },
+                        [
+                          _vm._v(
+                            "\n                                Send Message\n                        "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "section-header" }, [
+      _c("h3", [_vm._v("Contact Us")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("If you need our services or initial discussion, do contact us ")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-6" }, [
+      _c("div", { staticClass: "map mb-4 mb-lg-0" }, [
+        _c("iframe", {
+          staticStyle: { border: "0", width: "100%", height: "412px" },
+          attrs: {
+            src:
+              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.1643424773238!2d106.84004611409846!3d-6.242060295481669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3bf4d9ba483%3A0xd7437dddb6523c21!2sPT+Lamjaya+Global+Solusi!5e0!3m2!1sen!2sid!4v1542865080420",
+            frameborder: "0",
+            allowfullscreen: ""
+          }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-7 info" }, [
+        _c("i", { staticClass: "ion-ios-location-outline" }),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "Graha Mustika Ratu 4th Floor Jl. Jend. Gatot Subroto No.Kav 74-75 Menteng Dalam Tebet Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12870 Indonesia"
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-5 info" }, [
+        _c("i", { staticClass: "ion-ios-email-outline" }),
+        _vm._v(" "),
+        _c("p", [_vm._v("info@lamsolusi.com")]),
+        _vm._v(" "),
+        _c("i", { staticClass: "ion-ios-telephone-outline" }),
+        _vm._v(" "),
+        _c("p", [_vm._v("021-8306647")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/component/newbiz/FiturComponent.vue?vue&type=template&id=46091e1f&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/webpage/component/newbiz/FiturComponent.vue?vue&type=template&id=46091e1f& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "about" } }, [
+      _c("br"),
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("header", { staticClass: "section-header" }, [
+          _c("h3", [_vm._v("Application Features")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v("Find all the features you need to get up and running fast.")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row about-extra" }, [
+          _c("div", { staticClass: "col-lg-6 wow fadeInUp" }, [
+            _c("img", {
+              staticClass: "img-fluid",
+              attrs: { src: "images/img-legal.png", alt: "" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-6 wow fadeInUp pt-5 pt-lg-0" }, [
+            _c("h4", [_vm._v("Legas Module.")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "\n                    Easy to manage your legal document. you can tracking and find legal document also create document legal with existing templates\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-6 feature-list-content" }, [
+                _c("ul", [
+                  _c("li", [_vm._v("Aggrement Review")]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("Scanned Agreement Request")]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("L&C Advice")]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("Product Review")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6 feature-list-content" }, [
+                _c("ul", [
+                  _c("li", [_vm._v("Corporeate Document")]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("Agreement")]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("Partner's Corporate Document")]),
+                  _vm._v(" "),
+                  _c("li", [_vm._v("Agreement Template")])
+                ])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row about-extra" }, [
+          _c(
+            "div",
+            { staticClass: "col-lg-6 wow fadeInUp order-1 order-lg-2" },
+            [
+              _c("img", {
+                staticClass: "img-fluid",
+                attrs: { src: "images/img-compliance.png", alt: "" }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1 feature-list-content"
+            },
+            [
+              _c("h4", [_vm._v("Compliance.")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                    Convenience for potential partners to become your business vendor. You have the authority to provide ratings based on vendor performance for your business.\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c("ul", [
+                _c("li", [_vm._v("Annual Attestation")]),
+                _vm._v(" "),
+                _c("li", [
+                  _vm._v("COC Anual Declaration COI Adhoc Declaration")
+                ]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Declaration for bidding")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Event Approval")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Gift/Invitation Acceptance")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Gift/Intitation Granting")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Vendor Integrity Screening")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Corporate Document Request")]),
+                _vm._v(" "),
+                _c("li", [
+                  _vm._v("Anti-Money Laundring and Economic Sanctions")
+                ]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Gap Analysis (Regulatory Complience)")])
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row about-extra" }, [
+          _c("div", { staticClass: "col-lg-6 wow fadeInUp" }, [
+            _c("img", {
+              staticClass: "img-fluid",
+              attrs: { src: "images/img-secretary.png", alt: "" }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "col-lg-6 wow fadeInUp pt-5 pt-lg-0 feature-list-content"
+            },
+            [
+              _c("h4", [_vm._v("Corporate Secretary.")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                    this module for manage request document corporate to corporate Secretary and also make corporte Secretary easy to manage document and permision\n                "
+                )
+              ]),
+              _vm._v(" "),
+              _c("ul", [
+                _c("li", [_vm._v("Exporting Expatriate Working Permit")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Fit & Proper Test Request")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("New Experiate Working Permit")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Power of Attorney Request")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Government Correspondence Request")]),
+                _vm._v(" "),
+                _c("li", [_vm._v("Corporate Document (Document Archive)")]),
+                _vm._v(" "),
+                _c("li", [
+                  _vm._v("Regulatory Reporting (Regulatory Complience)")
+                ])
+              ])
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/component/newbiz/IntroComponent.vue?vue&type=template&id=73e47ee1&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/webpage/component/newbiz/IntroComponent.vue?vue&type=template&id=73e47ee1& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "clearfix", attrs: { id: "intro" } }, [
+    _c("div", { staticClass: "container" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "intro-info" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", [
+          _c(
+            "a",
+            {
+              directives: [
+                {
+                  name: "scroll-to",
+                  rawName: "v-scroll-to",
+                  value: "#contact",
+                  expression: "'#contact'"
+                }
+              ],
+              staticClass: "btn-get-started scrollto",
+              attrs: { href: "javascript:void(0)" },
+              on: {
+                click: function($event) {
+                  return _vm.activate(4)
+                }
+              }
+            },
+            [_vm._v("Request Demo")]
+          )
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "intro-img" }, [
+      _c("img", {
+        staticClass: "img-fluid",
+        attrs: { src: "images/intro-img.svg", alt: "" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h2", [
+      _vm._v("Legal Complience"),
+      _c("br"),
+      _c("span", [_vm._v("System")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/component/newbiz/TestimoniComponent.vue?vue&type=template&id=5aa07e4e&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/webpage/component/newbiz/TestimoniComponent.vue?vue&type=template&id=5aa07e4e& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    { staticClass: "section-bg", attrs: { id: "testimonials" } },
+    [
+      _c("br"),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c(
+            "div",
+            { staticClass: "col-lg-8" },
+            [
+              _c("carousel", { attrs: { data: _vm.$store.state.testimonials } })
+            ],
+            1
+          )
+        ])
+      ]),
+      _c("br"),
+      _c("br"),
+      _c("br"),
+      _c("br")
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", { staticClass: "section-header" }, [
+      _c("h3", [_vm._v("Testimonials")])
     ])
   }
 ]
@@ -101345,93 +101574,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/pages/HomeNewbiz.vue":
-/*!*******************************************!*\
-  !*** ./resources/js/pages/HomeNewbiz.vue ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _HomeNewbiz_vue_vue_type_template_id_e9bf530a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HomeNewbiz.vue?vue&type=template&id=e9bf530a&scoped=true& */ "./resources/js/pages/HomeNewbiz.vue?vue&type=template&id=e9bf530a&scoped=true&");
-/* harmony import */ var _HomeNewbiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HomeNewbiz.vue?vue&type=script&lang=js& */ "./resources/js/pages/HomeNewbiz.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _HomeNewbiz_vue_vue_type_style_index_0_id_e9bf530a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HomeNewbiz.vue?vue&type=style&index=0&id=e9bf530a&scoped=true&lang=css& */ "./resources/js/pages/HomeNewbiz.vue?vue&type=style&index=0&id=e9bf530a&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _HomeNewbiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _HomeNewbiz_vue_vue_type_template_id_e9bf530a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _HomeNewbiz_vue_vue_type_template_id_e9bf530a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "e9bf530a",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/pages/HomeNewbiz.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/pages/HomeNewbiz.vue?vue&type=script&lang=js&":
-/*!********************************************************************!*\
-  !*** ./resources/js/pages/HomeNewbiz.vue?vue&type=script&lang=js& ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeNewbiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./HomeNewbiz.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/HomeNewbiz.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeNewbiz_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/pages/HomeNewbiz.vue?vue&type=style&index=0&id=e9bf530a&scoped=true&lang=css&":
-/*!****************************************************************************************************!*\
-  !*** ./resources/js/pages/HomeNewbiz.vue?vue&type=style&index=0&id=e9bf530a&scoped=true&lang=css& ***!
-  \****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeNewbiz_vue_vue_type_style_index_0_id_e9bf530a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./HomeNewbiz.vue?vue&type=style&index=0&id=e9bf530a&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/HomeNewbiz.vue?vue&type=style&index=0&id=e9bf530a&scoped=true&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeNewbiz_vue_vue_type_style_index_0_id_e9bf530a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeNewbiz_vue_vue_type_style_index_0_id_e9bf530a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeNewbiz_vue_vue_type_style_index_0_id_e9bf530a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeNewbiz_vue_vue_type_style_index_0_id_e9bf530a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeNewbiz_vue_vue_type_style_index_0_id_e9bf530a_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "./resources/js/pages/HomeNewbiz.vue?vue&type=template&id=e9bf530a&scoped=true&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/pages/HomeNewbiz.vue?vue&type=template&id=e9bf530a&scoped=true& ***!
-  \**************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeNewbiz_vue_vue_type_template_id_e9bf530a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./HomeNewbiz.vue?vue&type=template&id=e9bf530a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/HomeNewbiz.vue?vue&type=template&id=e9bf530a&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeNewbiz_vue_vue_type_template_id_e9bf530a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HomeNewbiz_vue_vue_type_template_id_e9bf530a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/router.js":
 /*!********************************!*\
   !*** ./resources/js/router.js ***!
@@ -101444,7 +101586,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _pages_HomeNewbiz__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/HomeNewbiz */ "./resources/js/pages/HomeNewbiz.vue");
+/* harmony import */ var _webpage_Mainpage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./webpage/Mainpage */ "./resources/js/webpage/Mainpage.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
@@ -101453,7 +101595,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: [{
     path: '/',
     name: 'home',
-    component: _pages_HomeNewbiz__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _webpage_Mainpage__WEBPACK_IMPORTED_MODULE_2__["default"]
   }]
 }); // router.beforeEach((to, from, next) => {
 //     if (to.path == '/login') {
@@ -101513,6 +101655,390 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 
 /***/ }),
 
+/***/ "./resources/js/webpage/EmptyComponent.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/webpage/EmptyComponent.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EmptyComponent_vue_vue_type_template_id_567d37fa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EmptyComponent.vue?vue&type=template&id=567d37fa& */ "./resources/js/webpage/EmptyComponent.vue?vue&type=template&id=567d37fa&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _EmptyComponent_vue_vue_type_template_id_567d37fa___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EmptyComponent_vue_vue_type_template_id_567d37fa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/webpage/EmptyComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/webpage/EmptyComponent.vue?vue&type=template&id=567d37fa&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/webpage/EmptyComponent.vue?vue&type=template&id=567d37fa& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EmptyComponent_vue_vue_type_template_id_567d37fa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./EmptyComponent.vue?vue&type=template&id=567d37fa& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/EmptyComponent.vue?vue&type=template&id=567d37fa&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EmptyComponent_vue_vue_type_template_id_567d37fa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EmptyComponent_vue_vue_type_template_id_567d37fa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/webpage/Mainpage.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/webpage/Mainpage.vue ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Mainpage_vue_vue_type_template_id_1884ff12_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Mainpage.vue?vue&type=template&id=1884ff12&scoped=true& */ "./resources/js/webpage/Mainpage.vue?vue&type=template&id=1884ff12&scoped=true&");
+/* harmony import */ var _Mainpage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Mainpage.vue?vue&type=script&lang=js& */ "./resources/js/webpage/Mainpage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Mainpage_vue_vue_type_style_index_0_id_1884ff12_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Mainpage.vue?vue&type=style&index=0&id=1884ff12&scoped=true&lang=css& */ "./resources/js/webpage/Mainpage.vue?vue&type=style&index=0&id=1884ff12&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Mainpage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Mainpage_vue_vue_type_template_id_1884ff12_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Mainpage_vue_vue_type_template_id_1884ff12_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "1884ff12",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/webpage/Mainpage.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/webpage/Mainpage.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/webpage/Mainpage.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Mainpage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Mainpage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/Mainpage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Mainpage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/webpage/Mainpage.vue?vue&type=style&index=0&id=1884ff12&scoped=true&lang=css&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/webpage/Mainpage.vue?vue&type=style&index=0&id=1884ff12&scoped=true&lang=css& ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Mainpage_vue_vue_type_style_index_0_id_1884ff12_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--7-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Mainpage.vue?vue&type=style&index=0&id=1884ff12&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/Mainpage.vue?vue&type=style&index=0&id=1884ff12&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Mainpage_vue_vue_type_style_index_0_id_1884ff12_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Mainpage_vue_vue_type_style_index_0_id_1884ff12_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Mainpage_vue_vue_type_style_index_0_id_1884ff12_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Mainpage_vue_vue_type_style_index_0_id_1884ff12_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Mainpage_vue_vue_type_style_index_0_id_1884ff12_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/webpage/Mainpage.vue?vue&type=template&id=1884ff12&scoped=true&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/webpage/Mainpage.vue?vue&type=template&id=1884ff12&scoped=true& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Mainpage_vue_vue_type_template_id_1884ff12_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Mainpage.vue?vue&type=template&id=1884ff12&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/Mainpage.vue?vue&type=template&id=1884ff12&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Mainpage_vue_vue_type_template_id_1884ff12_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Mainpage_vue_vue_type_template_id_1884ff12_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/webpage/component/newbiz/ContactComponent.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/webpage/component/newbiz/ContactComponent.vue ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ContactComponent_vue_vue_type_template_id_7511cfad___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactComponent.vue?vue&type=template&id=7511cfad& */ "./resources/js/webpage/component/newbiz/ContactComponent.vue?vue&type=template&id=7511cfad&");
+/* harmony import */ var _ContactComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContactComponent.vue?vue&type=script&lang=js& */ "./resources/js/webpage/component/newbiz/ContactComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ContactComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ContactComponent_vue_vue_type_template_id_7511cfad___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ContactComponent_vue_vue_type_template_id_7511cfad___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/webpage/component/newbiz/ContactComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/webpage/component/newbiz/ContactComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/webpage/component/newbiz/ContactComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ContactComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/component/newbiz/ContactComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/webpage/component/newbiz/ContactComponent.vue?vue&type=template&id=7511cfad&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/webpage/component/newbiz/ContactComponent.vue?vue&type=template&id=7511cfad& ***!
+  \***************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactComponent_vue_vue_type_template_id_7511cfad___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ContactComponent.vue?vue&type=template&id=7511cfad& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/component/newbiz/ContactComponent.vue?vue&type=template&id=7511cfad&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactComponent_vue_vue_type_template_id_7511cfad___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactComponent_vue_vue_type_template_id_7511cfad___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/webpage/component/newbiz/FiturComponent.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/webpage/component/newbiz/FiturComponent.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FiturComponent_vue_vue_type_template_id_46091e1f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FiturComponent.vue?vue&type=template&id=46091e1f& */ "./resources/js/webpage/component/newbiz/FiturComponent.vue?vue&type=template&id=46091e1f&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _FiturComponent_vue_vue_type_template_id_46091e1f___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FiturComponent_vue_vue_type_template_id_46091e1f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/webpage/component/newbiz/FiturComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/webpage/component/newbiz/FiturComponent.vue?vue&type=template&id=46091e1f&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/webpage/component/newbiz/FiturComponent.vue?vue&type=template&id=46091e1f& ***!
+  \*************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FiturComponent_vue_vue_type_template_id_46091e1f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./FiturComponent.vue?vue&type=template&id=46091e1f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/component/newbiz/FiturComponent.vue?vue&type=template&id=46091e1f&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FiturComponent_vue_vue_type_template_id_46091e1f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FiturComponent_vue_vue_type_template_id_46091e1f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/webpage/component/newbiz/IntroComponent.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/webpage/component/newbiz/IntroComponent.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _IntroComponent_vue_vue_type_template_id_73e47ee1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./IntroComponent.vue?vue&type=template&id=73e47ee1& */ "./resources/js/webpage/component/newbiz/IntroComponent.vue?vue&type=template&id=73e47ee1&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _IntroComponent_vue_vue_type_template_id_73e47ee1___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _IntroComponent_vue_vue_type_template_id_73e47ee1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/webpage/component/newbiz/IntroComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/webpage/component/newbiz/IntroComponent.vue?vue&type=template&id=73e47ee1&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/webpage/component/newbiz/IntroComponent.vue?vue&type=template&id=73e47ee1& ***!
+  \*************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IntroComponent_vue_vue_type_template_id_73e47ee1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./IntroComponent.vue?vue&type=template&id=73e47ee1& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/component/newbiz/IntroComponent.vue?vue&type=template&id=73e47ee1&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IntroComponent_vue_vue_type_template_id_73e47ee1___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_IntroComponent_vue_vue_type_template_id_73e47ee1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/webpage/component/newbiz/TestimoniComponent.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/webpage/component/newbiz/TestimoniComponent.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TestimoniComponent_vue_vue_type_template_id_5aa07e4e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TestimoniComponent.vue?vue&type=template&id=5aa07e4e& */ "./resources/js/webpage/component/newbiz/TestimoniComponent.vue?vue&type=template&id=5aa07e4e&");
+/* harmony import */ var _TestimoniComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TestimoniComponent.vue?vue&type=script&lang=js& */ "./resources/js/webpage/component/newbiz/TestimoniComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TestimoniComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TestimoniComponent_vue_vue_type_template_id_5aa07e4e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TestimoniComponent_vue_vue_type_template_id_5aa07e4e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/webpage/component/newbiz/TestimoniComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/webpage/component/newbiz/TestimoniComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/webpage/component/newbiz/TestimoniComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TestimoniComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TestimoniComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/component/newbiz/TestimoniComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TestimoniComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/webpage/component/newbiz/TestimoniComponent.vue?vue&type=template&id=5aa07e4e&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/webpage/component/newbiz/TestimoniComponent.vue?vue&type=template&id=5aa07e4e& ***!
+  \*****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TestimoniComponent_vue_vue_type_template_id_5aa07e4e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TestimoniComponent.vue?vue&type=template&id=5aa07e4e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/webpage/component/newbiz/TestimoniComponent.vue?vue&type=template&id=5aa07e4e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TestimoniComponent_vue_vue_type_template_id_5aa07e4e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TestimoniComponent_vue_vue_type_template_id_5aa07e4e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -101521,6 +102047,28 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/app_admin.scss":
+/*!***************************************!*\
+  !*** ./resources/sass/app_admin.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/templates/newbiz/img/icon-feature-list.svg":
+/*!**************************************************************!*\
+  !*** ./resources/templates/newbiz/img/icon-feature-list.svg ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/icon-feature-list.svg?ebb6697697cf8dcb76a0851dea8781c4";
 
 /***/ }),
 
@@ -101646,14 +102194,15 @@ module.exports = "/fonts/ionicons.woff?05acfdb568b3df49ad31355b19495d4a";
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!*********************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ./resources/sass/app_admin.scss ***!
+  \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/script/Project/larata-cms/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/script/Project/larata-cms/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/script/Project/larata-cms/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/script/Project/larata-cms/resources/sass/app_admin.scss */"./resources/sass/app_admin.scss");
 
 
 /***/ })

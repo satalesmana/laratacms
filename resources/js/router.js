@@ -3,14 +3,14 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import HomePageNewbiz from './pages/HomeNewbiz'
+import WebPage from './webpage/Mainpage'
 
 const router = new VueRouter({
     routes: [
         {
             path: '/',
             name: 'home',
-            component: HomePageNewbiz
+            component: WebPage
         }
         
     ]
