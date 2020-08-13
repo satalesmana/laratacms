@@ -4,7 +4,7 @@
         <div class="container">
             <header class="section-header">
                 <h3>Application Features</h3>
-                <p>Find all the features you need to get up and running fast.</p>
+                <p>Find all the features you need to get up and running fast</p>
             </header>
 
             <div class="row about-extra">
@@ -21,14 +21,12 @@
                             <ul>
                                 <li>Aggrement Review</li>
                                 <li>Scanned Agreement Request</li>
-                                <li>L&C Advice</li>
+                                <li>Legal Advice</li>
                                 <li>Product Review</li>
                             </ul>
                         </div>
                         <div class="col-lg-6 feature-list-content">
-                            <ul>
-                                <li>Corporeate Document</li>
-                                <li>Agreement</li>
+                            <ul> 
                                 <li>Partner's Corporate Document</li>
                                 <li>Agreement Template</li>
                             </ul>
