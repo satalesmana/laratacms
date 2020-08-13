@@ -14,7 +14,7 @@
       <TheMsgNotif :notif="notif" />
       <TheHeaderDropdownAccnt />
     </CHeaderNav>
-    <CHeaderNav > {{user.fullname}} | {{user.unitName}} | {{user.jabatan}}&nbsp; &nbsp;</CHeaderNav>
+    <CHeaderNav > Tes&nbsp; &nbsp;</CHeaderNav>
     <CSubheader class="px-3">
       <CBreadcrumbRouter class="border-0" />
     </CSubheader>
@@ -34,27 +34,9 @@ export default {
   },
   data() {
     return {
-      user :USER,
       notif: [],
       timer: ''
     };
-  },
-  created() {
-    this.getdata();
-    this.timer = setInterval(this.getdata, 100000)
-  },
-  methods: {
-    getdata() {
-      let params = { api_token: USER.api_token };
-      axios.get(API_URL + "/notif", { params: params }).then(r => {
-        this.notif = r.data;
-        // console.log("object r" ,r.data);
-      });
-    },
-    cancelAutoUpdate () { clearInterval(this.timer) }
-  },
-  beforeDestroy () {
-    clearInterval(this.timer)
   }
 };
 </script>

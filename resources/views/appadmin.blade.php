@@ -18,6 +18,10 @@
     <link href="{{ asset('css/app_admin.css') }}" rel="stylesheet">
 </head>
 <body>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
+
     <div id="app" ></div>
 </body>
 </html>
