@@ -9,7 +9,7 @@
                 <nav class="main-nav float-right d-none d-lg-block">
                     <ul>
                         <li  :class="{ active : active_el == 1 }"><a href="#" v-scroll-to="'#intro'" @click="activate(1)" >Home</a></li>
-                        <li  :class="{ active : active_el == 2 }"><a href="#" v-scroll-to="'#about'" @click="activate(2)" >Fitur</a></li>
+                        <li  :class="{ active : active_el == 2 }"><a href="#" v-scroll-to="'#about'" @click="activate(2)" >Features</a></li>
                         <li  :class="{ active : active_el == 3 }"><a href="#" v-scroll-to="'#testimonials'" @click="activate(3)" >Testimonials</a></li>            
                         <li  :class="{ active : active_el == 4 }"><a href="#" v-scroll-to="'#contact'" @click="activate(4)" >Contact Us</a></li>
                     </ul>
@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="col-lg-2 col-md-6 footer-links">
-                            <h4>Useful Links</h4>
+                            <h4>Usefull Links</h4>
                             <ul>
                             <li><a href="#" v-scroll-to="'#intro'" @click="activate(1)">Home</a></li>
                             <li><a href="#" v-scroll-to="'#about'" @click="activate(2)" >Features</a></li>

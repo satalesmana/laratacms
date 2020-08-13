@@ -4,7 +4,7 @@
 
             <div class="section-header">
                 <h3>Contact Us</h3>
-                <p>If you need our services or initial discussion, do contact us </p>
+                <p>If you need our services or initial discussion, please contact us </p>
             </div>
 
             <div class="row wow fadeInUp">

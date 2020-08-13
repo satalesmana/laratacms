@@ -12,9 +12,9 @@
                     <img src="images/img-legal.png" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
-                    <h4>Legal Module.</h4>
+                    <h4>Legal</h4>
                     <p>
-                        Easy to manage your legal document. you can tracking and find legal document also create document legal with existing templates
+                        Easy to manage your legal document, you can tracking and find legal document also create document legal with existing templates
                     </p>
                     <div class="row">
                         <div class="col-lg-6 feature-list-content">
@@ -43,13 +43,14 @@
                 </div>
     
                 <div class="col-lg-6 wow fadeInUp pt-4 pt-lg-0 order-2 order-lg-1 feature-list-content">
-                    <h4>Compliance.</h4>
+                    <h4>Compliance</h4>
                     <p>
-                        Convenience for potential partners to become your business vendor. You have the authority to provide ratings based on vendor performance for your business.
+                        Convenience for potential partners to become your business vendor, You have the authority to provide ratings based on vendor performance for your business
                     </p>
                     <ul>
                         <li>Annual Attestation</li>
-                        <li>COC Anual Declaration COI Adhoc Declaration</li>
+                        <li>COC Anual Declaration</li>
+                        <li>COI Adhoc Declaration</li>
                         <li>Declaration for bidding</li>
                         <li>Event Approval</li>
                         <li>Gift/Invitation Acceptance</li>
@@ -67,9 +68,9 @@
                     <img src="images/img-secretary.png" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0 feature-list-content">
-                    <h4>Corporate Secretary.</h4>
+                    <h4>Corporate Secretary</h4>
                     <p>
-                        this module for manage request document corporate to corporate Secretary and also make corporte Secretary easy to manage document and permision
+                        This module for manage request document corporate to corporate Secretary and also make corporte Secretary easy to manage document and permision
                     </p>
                     <ul>
                         <li>Exporting Expatriate Working Permit</li>
