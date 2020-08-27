@@ -55,8 +55,8 @@
                         <li>Gift/Intitation Granting</li>
                         <li>Vendor Integrity Screening</li>
                         <li>Corporate Document Request</li>
-                        <li>Anti-Money Laundring and Economic Sanctions</li>
-                        <li>Gap Analysis (Regulatory Complience)</li>
+                        <li>Anti-Money Laundering and Economic Sanctions</li>
+                        <li>Gap Analysis (Regulatory Compliance)</li>
                     </ul>
                 </div>
             </div>
@@ -66,9 +66,9 @@
                     <img src="images/img-secretary.png" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0 feature-list-content">
-                    <h4>Corporate Secretary</h4>
+                    <h4>Corporate secretary</h4>
                     <p>
-                        This module for manage request document corporate to corporate Secretary and also make corporte Secretary easy to manage document and permision
+                        This module for manage request document corporate to corporate secretary and also make corporte secretary easy to manage document and permision
                     </p>
                     <ul>
                         <li>Exporting Expatriate Working Permit</li>
@@ -77,7 +77,7 @@
                         <li>Power of Attorney Request</li>
                         <li>Government Correspondence Request</li>
                         <li>Corporate Document (Document Archive)</li>
-                        <li>Regulatory Reporting (Regulatory Complience)</li>
+                        <li>Regulatory Reporting (Regulatory Compliance)</li>
                     </ul>
                 </div>
             </div>

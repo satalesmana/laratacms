@@ -36,7 +36,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-md-6 footer-info">
-                            <h3>Legal Complience System</h3>
+                            <h3>Legal Compliance System</h3>
                             <h4>Benefit Using LCS</h4>
                             <p>- Centralize data.</p>
                             <p>- Easy to manage / Create Contract.</p>
@@ -78,6 +78,7 @@
             <div class="container">
                 <div class="copyright">
                     &copy; Copyright <strong>Lamjaya Global Solusi</strong>. All Rights Reserved
+                    <br> <strong><a href="/privacy-policy">Privacy & Policy</a></strong>
                 </div>
             </div>
         </footer>
