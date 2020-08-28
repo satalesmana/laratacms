@@ -68,7 +68,7 @@
                             <h4>Our Social Links</h4>
                             <div class="social-links">
                                 <a href="https://www.facebook.com/lamsolusi/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
-                                <a href="https://www.instagram.com/lamsolusi/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.instagram.com/legal.soft/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
                                 <a href="https://id.linkedin.com/company/lamsolusi/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
                             </div>
                         </div>
