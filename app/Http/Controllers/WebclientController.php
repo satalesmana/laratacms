@@ -20,7 +20,7 @@ class WebclientController extends Controller
         $email = new SendEmailMessages($request->all());
         try {
             Mail::to(explode(',',env('MAIL_APPLIST')))->send($email);
-            $msg = ['status' => 'error', 'message' => 'Messages successfully send to Administrator'];
+            $msg = ['status' => 'success', 'message' => 'Messages successfully send to Administrator'];
 
         } catch (\Exception $e) {
              $msg = ['status' => 'error', 'message' => 'Failed to send email.' . $e->getMessage()];

@@ -90,11 +90,20 @@ export default {
             this.loading = true;
             axios
             .post("send_messages", this.contact_us).then(r => {
-                this.$message({
-                    message: r.data.message,
-                    type: "success",
-                    showClose: true
-                });
+                if(r.data.status=='error'){
+                    this.$message({
+                        message: 'Sorry something is error, please try again',
+                        type: "success",
+                        showClose: true
+                    });
+                }else{
+                    this.$message({
+                        message: r.data.message,
+                        type: "success",
+                        showClose: true
+                    });
+                }
+                
                 this.formErrors={}
                 this.contact_us.name=''
                 this.contact_us.email=''

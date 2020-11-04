@@ -19,7 +19,7 @@ Route::resource('/testimoni','TestimonialsController')->only(['index']);
 Route::resource('/component',"ContentComponentController")->only(['index']);
 Route::resource('/privacy-policy',"PrivacypolecyController")->only(['index']);
 
-Auth::routes();
+Auth::routes(['register' => false]);
 Route::group(['middleware' => 'auth'], function () {
     Route::get('auth/me', 'AuthController@me');
     Route::resource('/adminpanel','AdminpanelController')->only(['index']);
