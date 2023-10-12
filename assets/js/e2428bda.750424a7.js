@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([[5139],{8892:a=>{a.exports=JSON.parse('{"label":"hello","permalink":"/laratacms/blog/tags/hello","allTagsPath":"/laratacms/blog/tags","count":2}')}}]);
